@@ -139,74 +139,80 @@ const Homepage = () => {
             globe.
           </p>
           <p className="home-description">
-            GAINOVA is an international community bridging industries,
-            universities, and students to accelerate innovation and
-            collaboration in Artificial Intelligence (AI) and Generative AI
-            (GenAI). As a web-based SaaS platform, GAINOVA fosters a scalable,
-            accessible, and collaborative ecosystem, empowering global
-            stakeholders to shape the AI-driven future.
+          GAINOVA is a global platform that connects industries, universities, and students to accelerate collaboration and innovation in Artificial Intelligence (AI) and Generative AI (GenAI). As a scalable web-based SaaS platform, GAINOVA empowers a diverse community to learn, build, and lead the future of AI together.
           </p>
         </div>
       </section>
 
       <section id="features" className="section features">
-        <h2>Our Features</h2>
-        <ul>
-          <li>
-            <b>Catalyst Projects</b> – Solve real-world problems with rapid
-            innovation sprints.
-          </li>
-          <li>
-            <b>Frameworks & Standards</b> – Promote open-source AI standards and
-            interoperability.
-          </li>
-          <li>
-            <b>Training & Certifications</b> – Upskill with AI-focused courses
-            and credentials.
-          </li>
-          <li>
-            <b>Research & Publications</b> – Stay updated with insights,
-            whitepapers, and case studies.
-          </li>
-          <li>
-            <b>Events & Hackathons</b> – Network and innovate at our global
-            events.
-          </li>
-          <li>
-            <b>Innovation Hub</b> – Experiment with cutting-edge technologies and
-            build MVPs.
-          </li>
-          <li>
-            <b>Open APIs</b> – Standardized APIs for scalable AI agent systems.
-          </li>
-          <li>
-            <b>AI Maturity Model</b> – Assess and guide your AI transformation
-            journey.
-          </li>
-        </ul>
-      </section>
+  <h2>Our Features</h2>
+  <div className="features-grid">
+    {[
+      {
+        title: "Innovative Collaborative Projects",
+        description:
+          "Tackle real-world AI/GenAI challenges with experts and students. Gain hands-on experience and drive AI innovation.",
+      },
+      {
+        title: "Industry-Leading Frameworks & Standards",
+        description:
+          "Shape the future of AI with open-source standards that ensure interoperability and reduce costs.",
+      },
+      {
+        title: "AI Training & Certification",
+        description:
+          "Master AI with certified courses and boost your career with cutting-edge skills in AI frameworks and digital transformation.",
+      },
+      {
+        title: "AI Maturity Model for Success",
+        description:
+          "Use our AI Maturity Model to track your progress and accelerate your AI transformation.",
+      },
+      {
+        title: "Global Events & Conferences",
+        description:
+          "Connect with industry leaders and innovators at AI hackathons, conferences, and more.",
+      },
+      {
+        title: "Innovation Hub for Breakthrough Ideas",
+        description:
+          "Collaborate on MVP projects and explore the latest AI trends to push the limits of innovation.",
+      },
+      {
+        title: "Open APIs for Seamless Integration",
+        description:
+          "Leverage Open APIs to build scalable AI agent systems and drive digital transformation.",
+      },
+      {
+        title: "Startup Growth & Innovation",
+        description:
+          "Accelerate your startup with mentorship, collaboration, and exposure to the GAINOVA community.",
+      },
+    ].map((feature, index) => (
+      <div className="feature-card" key={index}>
+        <h3>{feature.title}</h3>
+        <p>{feature.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       <section id="why" className="section why-gainova">
         <h2>Why GAINOVA?</h2>
+        <h3>GAINOVA is an international collaboration platform that connects students, universities, industry experts, and startups to drive AI innovation and adoption.</h3>
         <ul>
           <li>
-            <b>Global Collaboration</b> between students, universities, and
-            industries.
+            <b>Comprehensive Resource Hub:</b> Access projects, tools, frameworks, and training for AI-driven growth.
           </li>
           <li>
-            <b>Hands-on Learning</b> through real-world projects and innovation
-            hubs.
+            <b>Seamless Collaboration:</b> Work together on real-world problems, share knowledge, and innovate globally.
           </li>
           <li>
-            <b>Career Growth</b> with certifications, mentorships, and leadership
-            opportunities.
+            <b>Scalable & Accessible:</b> As a web-based SaaS platform, GAINOVA empowers users to thrive in the AI economy from anywhere.
           </li>
           <li>
-            <b>Innovation Leadership</b> via research and MVP development.
-          </li>
-          <li>
-            <b>Sustainability Focus</b> – aligning AI innovation with global
-            goals.
+            <b>Global Network:</b> Connect with a diverse community of innovators, experts, and learners from all corners of the world to accelerate your AI journey.
           </li>
         </ul>
       </section>
