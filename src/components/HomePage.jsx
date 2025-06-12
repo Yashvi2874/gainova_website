@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import homeBg from "./assets/bg_new.jpg";
+import homeBg from "../assets/bg_new.jpg";
 
 const sections = ["home", "features", "why", "podcast", "contact"];
 
