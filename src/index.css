@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  
 }
 
 h1 {
@@ -455,4 +456,101 @@ body.light-mode,
 
 .homepage.light-mode .feature-card p {
   color: #213547;
+}
+/* Footer.css */
+.light-mode .footer {
+  background-color: #f7875e;
+  color: #212529;
+}
+
+.light-mode .footer .footer-text,
+.light-mode .footer .privacy-policy,
+.light-mode .footer .social-icon {
+  color: #212529;
+}
+
+.light-mode .footer .privacy-policy:hover,
+.light-mode .footer .social-icon:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+
+.footer {
+  width: 100%;
+  background-color: #ff6b35;
+  padding: 1rem 0;
+  color: black;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-icon {
+  color: black;
+  transition: color 0.5s ease-in-out;
+  font-size: 1.25rem;
+}
+
+.social-icon:hover {
+  color: white;
+}
+
+.privacy-policy {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #121212;
+}
+
+.privacy-policy:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: for medium screens and above */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+  }
+
+  .footer-text {
+    text-align: left;
+  }
+
+  .privacy-policy {
+    text-align: right;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+body.light-mode {
+  background-color: #f7875e;
+}
+
+body.dark-mode {
+  background-color: #ff6b35; 
 }
