@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "../components/Navbar"; // adjust the path as needed
 import homeBg from "../assets/bg_new.jpg";
+
 
 const sections = ["home", "features", "why", "podcast", "contact"];
 
@@ -57,44 +59,13 @@ const Homepage = () => {
 
   return (
     <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      <nav className="navbar">
-        <div className="logo">
-          <span className="logo-light">G</span>
-          <span className="logo-orange">AI</span>
-          <span className="logo-light">NOVA</span>
-        </div>
-        <ul className="nav-links">
-          {sections.map((section) => (
-            <li key={section}>
-              <button
-                onClick={() => scrollToSection(section)}
-                className={activeSection === section ? "active" : ""}
-              >
-                {section === "why"
-                  ? "Why GAINOVA"
-                  : section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
-            </li>
-          ))}
-          <li>
-            <button
-              aria-label="Toggle light mode"
-              className="lightmode-toggle"
-              onClick={() => setIsLightMode((v) => !v)}
-              style={{
-                marginLeft: "1.5rem",
-                fontSize: "1.2rem",
-                background: "none",
-                border: "none",
-                color: isLightMode ? "#ff6b35" : "#f0f0f0",
-                cursor: "pointer",
-              }}
-            >
-              {isLightMode ? "☀️" : "🌙"}
-            </button>
-          </li>
-        </ul>
-      </nav>
+            <Navbar
+        sections={sections}
+        activeSection={activeSection}
+        scrollToSection={scrollToSection}
+        isLightMode={isLightMode}
+        toggleLightMode={() => setIsLightMode((v) => !v)}
+      />
 
       <section
         id="home"
