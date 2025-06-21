@@ -103,13 +103,9 @@ body {
 }
 
 /* === LOGO COLORS === */
-.logo {
-  font-family: 'Audiowide', cursive;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
+.logo-image {
+  height: 40px; /* adjust as needed */
+  width: auto;
 }
 
 .nav-links {
