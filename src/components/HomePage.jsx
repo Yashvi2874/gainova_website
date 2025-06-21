@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar"; // adjust the path as needed
 import homeBg from "../assets/bg_new.jpg";
-import robotImage from "../assets/robot-website.webp";
 
 
 const sections = ["home", "features", "why", "podcast", "contact"];
@@ -72,92 +71,52 @@ const Homepage = () => {
       />
 
       <section
-  id="home"
-  className="section home fade-in"
-  style={{
-    position: "relative",
-    backgroundColor: "#242423",
-    color: "white",
-    minHeight: "90vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "2rem 4rem",
-    boxSizing: "border-box",
-    borderRadius: "20px",
-    border: "1px solid #444",
-    overflow: "hidden",
-    flexWrap: "wrap",
-  }}
->
-  {/* Left Side - Text Content */}
-  <div style={{ flex: "1 1 50%", zIndex: 1, minWidth: "300px" }}>
-    <h1
-      style={{
-        fontFamily: "Garet, sans-serif",
-        fontSize: "4rem",
-        margin: 0,
-        fontWeight: "bold",
-        color: "#FFFFFF",
-      }}
-    >
-      <span style={{ color: "#FFFFFF" }}>G</span>
-      <span style={{ color: "#FF914D" }}>AI</span>
-      <span style={{ color: "#FFFFFF" }}>NOVA</span>
-    </h1>
-    <p
-      style={{
-        fontFamily: "Livvic, sans-serif",
-        fontSize: "1.5rem",
-        marginTop: "1rem",
-        color: "#D4BE69",
-      }}
-    >
-      Empowering the AI ecosystem
-    </p>
-
-    {/* Button */}
-    <button
-      style={{
-        marginTop: "2rem",
-        padding: "0.75rem 1.5rem",
-        fontSize: "1rem",
-        fontFamily: "Livvic, sans-serif",
-        backgroundColor: "#FFFFFF",
-        color: "#000000",
-        borderRadius: "2rem",
-        border: "none",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        gap: "0.5rem",
-        transition: "all 0.3s ease",
-      }}
-      onClick={() => scrollToSection("features")}
-    >
-      Learn More{" "}
-      <span style={{ color: "#FF914D", fontSize: "1.2rem" }}>→</span>
-    </button>
-  </div>
-
-  {/* Right Side - Robot Image */}
-  <div
-    style={{
-      flex: "1 1 40%",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      zIndex: 1,
-      minWidth: "300px",
-    }}
-  >
-    <img
-      src={robotImage}
-      alt="Robot with Tablet"
-      style={{ maxWidth: "100%", height: "auto", objectFit: "contain" }}
-    />
-  </div>
-</section>
+        id="home"
+        className="section home fade-in"
+        style={{
+          position: "relative",
+          backgroundImage: `url(${homeBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          color: isLightMode ? "#213547" : "white",
+          minHeight: "90vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "2rem",
+          boxSizing: "border-box",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: isLightMode
+              ? "rgba(255,255,255,0.55)"
+              : "rgba(0,0,0,0.55)",
+            zIndex: 0,
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <h1 className="main-heading">
+            <span className="logo-light">G</span>
+            <span className="logo-orange">AI</span>
+            <span className="logo-light">NOVA</span>
+          </h1>
+          <p className="tagline">Empowering the AI Ecosystem</p>
+          <p>
+            Collaborate, innovate, and transform with the best minds across the
+            globe.
+          </p>
+          <p className="home-description">
+          GAINOVA is a global platform that connects industries, universities, and students to accelerate collaboration and innovation in Artificial Intelligence (AI) and Generative AI (GenAI). As a scalable web-based SaaS platform, GAINOVA empowers a diverse community to learn, build, and lead the future of AI together.
+          </p>
+        </div>
+      </section>
 
       <section id="features" className="section features">
   <h2>Our Features</h2>
