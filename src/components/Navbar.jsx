@@ -1,9 +1,19 @@
+// src/components/Navbar.js
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
-const Navbar = ({ sections, activeSection, scrollToSection, isLightMode, toggleLightMode }) => {
+const Navbar = ({ isLightMode, toggleLightMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileToggle = () => setIsMobileMenuOpen((prev) => !prev);
+
+  const links = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/teams", label: "Teams" },
+    { path: "/podcast", label: "Podcast" },
+    { path: "/features", label: "Features" },
+  ];
 
   return (
     <nav className="navbar">
@@ -16,16 +26,14 @@ const Navbar = ({ sections, activeSection, scrollToSection, isLightMode, toggleL
 
       {/* Desktop Nav */}
       <ul className="nav-links desktop-nav">
-        {sections.map((section) => (
-          <li key={section}>
-            <button
-              onClick={() => scrollToSection(section)}
-              className={activeSection === section ? "active" : ""}
+        {links.map(({ path, label }) => (
+          <li key={path}>
+            <NavLink
+              to={path}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-              {section === "why"
-                ? "Why GAINOVA"
-                : section.charAt(0).toUpperCase() + section.slice(1)}
-            </button>
+              {label}
+            </NavLink>
           </li>
         ))}
         <li>
@@ -49,46 +57,61 @@ const Navbar = ({ sections, activeSection, scrollToSection, isLightMode, toggleL
 
       {/* Mobile: Light toggle + hamburger */}
       <div className="mobile-nav-toggle">
+              <button
+        onClick={toggleLightMode}
+        style={{
+          fontSize: "1rem",
+          background: "none",
+          border: "none",
+          color: isLightMode ? "#213547" : "#f0f0f0", // Light vs Dark text
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        {isLightMode ? (
+          <>
+            ☀️
+          </>
+        ) : (
+          <>
+            🌙
+          </>
+        )}
+      </button>
+
         <button
-          aria-label="Toggle light mode"
-          onClick={toggleLightMode}
-          className="lightmode-toggle"
-          style={{
-            fontSize: "1.2rem",
-            background: "none",
-            border: "none",
-            color: isLightMode ? "#ff6b35" : "#f0f0f0",
-            cursor: "pointer",
-            marginRight: "1rem",
-          }}
-        >
-          {isLightMode ? "☀️" : "🌙"}
-        </button>
-        <button
-          className="hamburger-toggle"
-          onClick={handleMobileToggle}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? "✖️" : "☰"}
-        </button>
+  className="hamburger-toggle"
+  onClick={handleMobileToggle}
+  aria-label="Toggle menu"
+  style={{
+    fontSize: "1.5rem",
+    background: "none",
+    border: "none",
+    color: isLightMode ? "#213547" : "#f0f0f0", // 👈 This is the important part
+    cursor: "pointer",
+  }}
+>
+  {isMobileMenuOpen ? "✖️" : "☰"}
+</button>
+
       </div>
 
       {/* Mobile dropdown */}
       {isMobileMenuOpen && (
         <ul className="mobile-dropdown">
-          {sections.map((section) => (
-            <li key={section}>
-              <button
-                onClick={() => {
-                  scrollToSection(section);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={activeSection === section ? "active" : ""}
+          {links.map(({ path, label }) => (
+            <li key={path}>
+              <NavLink
+                to={path}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""} ${isLightMode ? "light-text" : "dark-text"}`
+                }
               >
-                {section === "why"
-                  ? "Why GAINOVA"
-                  : section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
+                {label}
+              </NavLink>
+
             </li>
           ))}
         </ul>

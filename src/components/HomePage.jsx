@@ -58,7 +58,10 @@ const Homepage = () => {
   };
 
   return (
-    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
+     <div
+    className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}
+    style={{ minHeight: "100vh", overflow: "hidden"}}
+  >
             <Navbar
         sections={sections}
         activeSection={activeSection}
@@ -77,7 +80,7 @@ const Homepage = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           color: isLightMode ? "#213547" : "white",
-          height: "90vh",
+          minHeight: "90vh",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

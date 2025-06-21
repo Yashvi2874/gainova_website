@@ -7,6 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GAINOVA</title>
+
+    <!-- 👇 Theme initialization script (runs before React loads) -->
+    <script>
+  (function () {
+    const theme = localStorage.getItem('gainova-lightmode');
+    const isLight = theme === 'true';
+    document.body.classList.toggle('light-mode', isLight);
+    document.body.classList.toggle('dark-mode', !isLight);
+  })();
+</script>
+
+
+
   </head>
   <body>
     <div id="root"></div>
