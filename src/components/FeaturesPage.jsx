@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const FeaturesPage = () => {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -25,12 +25,12 @@ const FeaturesPage = () => {
 
   return (
     <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      <Navbar
+      {/* <Navbar
         sections={[]}
         activeSection="features"
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       <section
         className="section"

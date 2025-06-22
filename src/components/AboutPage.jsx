@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import evolutionGif from "../assets/Evolution.gif";
 
 const AboutPage = () => {
@@ -250,12 +250,12 @@ const AboutPage = () => {
 
   return (
     <div style={styles.container}>
-      <Navbar
+      {/* <Navbar
         sections={[]}
         activeSection="about"
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       {/* Hero Section with Local GIF */}
       <section style={styles.heroWrapper}>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar"; // adjust the path as needed
-import homeBg from "../assets/bg_new.jpg";
+// import Navbar from "../components/Navbar"; // adjust the path as needed
+import homeBg from "../../assets/bg_new.jpg";
 
 
 const sections = ["home", "features", "why", "podcast", "contact"];
@@ -62,13 +62,13 @@ const Homepage = () => {
     className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}
     style={{ minHeight: "100vh", overflow: "hidden"}}
   >
-            <Navbar
+            {/* <Navbar
         sections={sections}
         activeSection={activeSection}
         scrollToSection={scrollToSection}
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       <section
         id="home"
