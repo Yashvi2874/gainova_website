@@ -43,3 +43,33 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-text-animate {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-image-animate {
+  animation: fadeInRight 1.2s ease-out forwards;
+}
