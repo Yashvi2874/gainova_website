@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar"; // adjust the path as needed
-import homeBg from "../assets/bg_new.jpg";
-import robotImage from "../assets/robot-website.webp";
-import heroBg from "../assets/background_hero.png"; 
+import robotImage from "../../assets/robot-website.webp";
+import heroBg from "../../assets/background_hero.png"; 
 // import Navbar from "../components/Navbar"; // adjust the path as needed
 import homeBg from "../../assets/bg_new.jpg";
 
