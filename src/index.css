@@ -1,11 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@900&display=swap');
+
+/* If you have Garet Book as a local file or CDN, import it here. Example: */
+@font-face {
+  font-family: 'Garet Book';
+  src: url('/fonts/Garet-Book.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Set Livvic Black for all text except headings and navbar */
+body, html {
+  font-family: 'Livvic', Arial, Helvetica, sans-serif;
+  font-weight: 500; /* This makes all text bold by default */
+}
+
+/* Set Garet Book for headings and navbar, with normal weight */
+h1, h2, h3, h4, h5, h6,
+.main-heading,
+.logo,
+.navbar,
+.nav-links,
+.nav-links a {
+  font-family: 'Garet Book', 'Livvic', Arial, Helvetica, sans-serif !important;
+  font-weight: 500 !important;
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #181818;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -77,7 +104,8 @@ button:focus-visible {
 
 body {
   margin: 0;
-  background-color: #121212;
+  background-color: #191919
+;
   color: #f0f0f0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -86,48 +114,6 @@ body {
   padding-top: 70px;
 
   /* space for fixed navbar */
-}
-
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  z-index: 1000;
-  border-bottom: 2px solid #ff6b35;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* === LOGO COLORS === */
-.logo-image {
-  height: 40px; /* adjust as needed */
-  width: auto;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white; /* or any theme color */
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ff6b35; /* highlight on hover */
-}
-
-.nav-links a.active {
-  color: #ff6b35; /* active route color */
 }
 
 /* Sections */
@@ -141,7 +127,7 @@ body {
 }
 
 .highlight {
-  color: #ff6b35;
+  color: #ff914d;
 }
 
 .tagline {
@@ -153,8 +139,8 @@ body {
 .features h2,
 .why-gainova h2,
 .contact h2 {
-  color: #ff6b35;
-  border-bottom: 1px solid #ff6b35;
+  color: #ff914d;
+  border-bottom: 1px solid #ff914d;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -167,10 +153,10 @@ body {
 
 .features li,
 .why-gainova li {
-  background-color: #1e1e1e;
+  background-color: #141414;
   padding: 1rem;
   margin-bottom: 0.75rem;
-  border-left: 4px solid #ff6b35;
+  border-left: 4px solid #ff914d;
   border-radius: 6px;
 }
 
@@ -218,7 +204,7 @@ body {
 }
 
 .logo-orange {
-  color: #ff6b35;
+  color: #ff914d;
 }
 
 .main-heading {
@@ -234,7 +220,7 @@ body {
 
 .features b,
 .why-gainova b {
-  color: #cd6641;
+  color: #ff914d;
 }
 
 .home-description {
@@ -263,13 +249,13 @@ body {
 
 body.light-mode .nav-links button:hover,
 body.dark-mode .nav-links button:hover {
-  border-bottom-color: #ff6b35;
+  border-bottom-color: #ff914d;
 }
 
 .nav-links button.active {
-  border-bottom-color: #ff6600;
+  border-bottom-color: #ff914d;
   font-weight: 600;
-  color: #ff6600;
+  color: #ff914d;
 }
 
 .homepage h2 {
@@ -319,11 +305,11 @@ body.dark-mode .logo-light {
 
 body.light-mode .navbar {
   background-color: #ffffff;
-  border-bottom: 2px solid #ff6b35;
+  border-bottom: 2px solid #ff914d;
 }
 
 body.dark-mode .navbar {
-  background-color: #1e1e1e;
+  background-color: #242423;
 }
 
 body.dark-mode .nav-links button {
@@ -344,15 +330,15 @@ body.light-mode .nav-links button {
 
 body.light-mode .nav-links button.active,
 body.dark-mode .nav-links button.active {
-  color: #ff6b35 !important;
-  border-bottom-color: #ff6b35;
+  color: #ff914d !important;
+  border-bottom-color: #ff914d;
   font-weight: 600;
 }
 
 body.light-mode .features li,
 body.light-mode .why-gainova li {
   background-color: #f5f5f5;
-  border-left: 4px solid #ff6b35;
+  border-left: 4px solid #ff914d;
   color: #213547;
 }
 
@@ -369,7 +355,7 @@ body.light-mode .main-heading {
 }
 
 body.light-mode .logo-orange {
-  color: #ff6b35;
+  color: #ff914d;
 }
 
 body.light-mode .home-description {
@@ -385,7 +371,7 @@ body.light-mode .home-description {
 
 .feature-card {
   background: #1e1e1e;
-  border: 1px solid #ff6b35;
+  border: 1px solid #ff914d;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -435,7 +421,7 @@ body.light-mode .home-description {
 
 
 .feature-card h3 {
-  color: #ff6b35; 
+  color: #ff914d; 
   margin-bottom: 1rem;
   font-size: 1.25rem;
 }
@@ -447,7 +433,7 @@ body.light-mode .home-description {
 }
 body.light-mode .feature-card {
   background-color: #f0f0f0;
-  border: 1px solid #ff6b35;
+  border: 1px solid #ff914d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -458,7 +444,7 @@ body.light-mode .feature-card:hover {
 }
 
 body.light-mode .feature-card h3 {
-  color: #ff6b35;
+  color: #ff914d;
 }
 
 body.light-mode .feature-card p {
@@ -468,7 +454,7 @@ body.light-mode .feature-card p {
 /* === Footer === */
 .footer {
   width: 100%;
-  background-color: #ff6b35;
+  background-color:#ff914d;
   color: black;
   padding: 1rem 0;
 }
@@ -511,14 +497,14 @@ body.light-mode .feature-card p {
 
 /* Light mode overrides */
 .light-mode .footer {
-  background-color: #f7875e;
-  color: #212529;
+  background-color: #ff914d;
+  color: #242423;
 }
 
 .light-mode .footer .footer-text,
 .light-mode .footer .privacy-policy,
 .light-mode .footer .social-icon {
-  color: #212529;
+  color: #242423;
 }
 
 .light-mode .footer .privacy-policy:hover,
@@ -550,133 +536,17 @@ body.light-mode {
 }
 
 body.dark-mode {
-  background-color: #121212;
+  background-color: #242423;
   color: #f0f0f0;
 }
 
-/* Responsive Navbar Behavior */
-.desktop-nav {
-  display: flex;
-  gap: 1.5rem;
+/* Website background color */
+body.dark-mode {
+  background-color: #181818 !important;
+  color: #f0f0f0;
 }
 
-.mobile-nav-toggle {
-  display: none;
-  align-items: center;
-}
-
-/* === MOBILE DROPDOWN MENU === */
-.mobile-dropdown {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100vw;
-  padding: 1.5rem 2rem;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  border-top: 2px solid #ff6b35;
-}
-
-body.light-mode .mobile-dropdown {
-  background-color: #ffffff;
-}
-
-body.dark-mode .mobile-dropdown {
-  background-color: #1e1e1e;
-}
-
-.mobile-dropdown li button {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  text-align: left;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-body.light-mode .mobile-dropdown li button {
+body.light-mode {
+  background-color: #fff !important;
   color: #213547;
 }
-
-body.dark-mode .mobile-dropdown li button {
-  color: #f0f0f0;
-}
-
-.mobile-dropdown li button:hover {
-  color: #ff6b35;
-}
-
-/* Only show full nav on large screens */
-@media (max-width: 1024px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-nav-toggle {
-    display: flex;
-  }
-}
-
-body.light-mode .nav-links a {
-  color: #213547;
-}
-
-body.dark-mode .nav-links a {
-  color: #f0f0f0;
-}
-
-body.light-mode .nav-links a.active,
-body.dark-mode .nav-links a.active {
-  color: #ff6b35;
-}
-
-/* Dark mode: hamburger icon color */
-body.dark-mode .mobile-nav-toggle svg,
-body.dark-mode .mobile-nav-toggle {
-  color: #f0f0f0;
-  fill: #f0f0f0;
-}
-
-/* Light mode: hamburger icon color */
-body.light-mode .mobile-nav-toggle svg,
-body.light-mode .mobile-nav-toggle {
-  color: #213547;
-  fill: #213547;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-
-.app-layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.main-content {
-  flex: 1;
-  overflow-y: auto;
-}
-
-
-
-.page-content {
-  flex: 1;
-  padding: 2rem;
-  min-height: calc(100vh - 70px - 80px); /* nav + footer height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
