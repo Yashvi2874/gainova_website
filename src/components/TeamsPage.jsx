@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const teamMembers = [
   {
@@ -39,12 +39,12 @@ const TeamsPage = () => {
 
   return (
     <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      <Navbar
+      {/* <Navbar
         sections={[]}
         activeSection="teams"
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       <section
         className="section"

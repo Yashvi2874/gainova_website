@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar"; // adjust the path as needed
-import homeBg from "../assets/bg_new.jpg";
+import robotImage from "../../assets/robot-website.webp";
+import heroBg from "../../assets/background_hero.png"; 
+// import Navbar from "../components/Navbar"; // adjust the path as needed
+import homeBg from "../../assets/bg_new.jpg";
 
 
 const sections = ["home", "features", "why", "podcast", "contact"];
@@ -62,61 +64,106 @@ const Homepage = () => {
     className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}
     style={{ minHeight: "100vh", overflow: "hidden"}}
   >
-            <Navbar
+            {/* <Navbar
         sections={sections}
         activeSection={activeSection}
         scrollToSection={scrollToSection}
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       <section
-        id="home"
-        className="section home fade-in"
-        style={{
-          position: "relative",
-          backgroundImage: `url(${homeBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          color: isLightMode ? "#213547" : "white",
-          minHeight: "90vh",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          padding: "2rem",
-          boxSizing: "border-box",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: isLightMode
-              ? "rgba(255,255,255,0.55)"
-              : "rgba(0,0,0,0.55)",
-            zIndex: 0,
-          }}
-        />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <h1 className="main-heading">
-            <span className="logo-light">G</span>
-            <span className="logo-orange">AI</span>
-            <span className="logo-light">NOVA</span>
-          </h1>
-          <p className="tagline">Empowering the AI Ecosystem</p>
-          <p>
-            Collaborate, innovate, and transform with the best minds across the
-            globe.
-          </p>
-          <p className="home-description">
-          GAINOVA is a global platform that connects industries, universities, and students to accelerate collaboration and innovation in Artificial Intelligence (AI) and Generative AI (GenAI). As a scalable web-based SaaS platform, GAINOVA empowers a diverse community to learn, build, and lead the future of AI together.
-          </p>
-        </div>
-      </section>
+  id="home"
+  className="section home fade-in"
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "4rem",
+    minHeight: "90vh",
+    boxSizing: "border-box",
+    borderBottom: "2px solid #ff914d",
+    flexWrap: "wrap",
+    backgroundImage: `url(${heroBg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "relative",
+    color: "#ffffff",
+  }}
+>
+  {/* Optional: dark overlay to enhance text visibility */}
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      height: "100%",
+      width: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.4)",
+      zIndex: 0,
+    }}
+  ></div>
+
+  {/* Left side - Text */}
+  <div style={{ flex: "1 1 50%", minWidth: "300px", zIndex: 1 }}>
+    <h1 style={{ fontFamily: "Garet, sans-serif", fontSize: "5rem", fontWeight: "bold", margin: 0 }}>
+      <span style={{ color: "#ffffff" }}>G</span>
+      <span style={{ color: "#FF914D" }}>AI</span>
+      <span style={{ color: "#ffffff" }}>NOVA</span>
+    </h1>
+    <p style={{ fontFamily: "Livvic, sans-serif", fontSize: "1.5rem", color: "#d4be69", marginTop: "1rem" }}>
+      Empowering the AI ecosystem
+    </p>
+    <button
+      style={{
+        marginTop: "2rem",
+        padding: "1rem 2rem",
+        fontSize: "1rem",
+        fontFamily: "Livvic, sans-serif",
+        fontWeight: "500",
+        color: "#000",
+        backgroundColor: "#fff",
+        border: "none",
+        borderRadius: "30px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+        cursor: "pointer",
+      }}
+      onClick={() => window.location.href = "/about"}
+    >
+      Learn More{" "}
+      <span style={{ color: "#FF914D", fontSize: "1.2rem" }}>→</span>
+    </button>
+  </div>
+
+  {/* Right side - Image */}
+  {/* Right side - Image */}
+<div
+  style={{
+    flex: "1 1 40%",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    height: "100%",
+    zIndex: 1,
+  }}
+>
+  <img
+    src={robotImage}
+    alt="AI Robot"
+    style={{
+  height: "100%",
+  width: "auto",
+  maxWidth: "100%",
+  objectFit: "contain",
+  transform: "scale(1.45)", // try 1.2 or 1.3 if needed
+}}
+  />
+</div>
+</section>
+
+
 
       <section id="features" className="section features">
   <h2>Our Features</h2>

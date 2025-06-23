@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import podcastVideo from "../assets/podcast_1.mp4";
@@ -155,12 +156,12 @@ const PodcastPage = () => {
 
   return (
     <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      <Navbar
+      {/* <Navbar
         sections={[]}
         activeSection="podcast"
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      />
+      /> */}
 
       <section className="podcast-page">
         <div className="container">
