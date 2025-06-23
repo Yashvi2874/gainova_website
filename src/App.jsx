@@ -9,6 +9,7 @@ import TeamsPage from './components/TeamsPage';
 import PodcastPage from './components/PodcastPage';
 import FeaturesPage from './components/FeaturesPage';
 import Navbar from './components/Navbar/Navbar';
+// import Contact from './components/contact/ContactUs';
 
 const App = () => {
   // Light/Dark mode state
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/features" element={<FeaturesPage />} />
+          {/* <Route path="/contact_us" element={<Contact />} /> */}
         </Route>
       </Routes>
     </Router>

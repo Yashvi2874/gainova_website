@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
-import Footer from './footer';
-import Navbar from './Navbar/Navbar';
+import Footer from './contact/ContactUs';
 
 const Layout = () => {
+  const footerRef = useRef(null);
+
+  // Make the ref available globally for Navbar
+  window.gainovaFooterRef = footerRef;
+
   return (
     <div className="app-layout">
-      <Navbar />
       <main className="main-content">
         <Outlet />
       </main>
-      <Footer />
+      <Footer ref={footerRef} />
     </div>
   );
 };
