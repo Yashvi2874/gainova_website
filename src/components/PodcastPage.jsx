@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import podcastVideo from "../assets/podcast_1.mp4";
 
 // ✅ Hook for scroll-based animation
