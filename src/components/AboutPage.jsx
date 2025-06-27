@@ -258,7 +258,7 @@ const AboutPage = () => {
       /> */}
 
       {/* Hero Section with Local GIF */}
-      <section style={styles.heroWrapper}>
+      <section id="about-hero" className="about-hero-section" style={styles.heroWrapper}>
         <div style={styles.heroOverlay}>
           <h1 style={styles.mainHeading}>Empowering the AI<br /> Ecosystem.</h1>
           <p style={styles.subtitle}>

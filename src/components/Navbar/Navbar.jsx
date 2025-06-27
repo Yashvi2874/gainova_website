@@ -9,6 +9,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -16,6 +17,12 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
     const timer = setTimeout(() => setVisible(true), 100); // Re-trigger animation
     return () => clearTimeout(timer);
   }, [location.pathname]); // Run on every route change
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleMobileToggle = () => {
     if (isMobileMenuOpen) {
@@ -101,9 +108,13 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
     );
   };
 
+  console.log("Navbar scrolled state:", scrolled);
   return (
-    <nav className={`navbar${visible ? " navbar--visible" : ""}`}>
-      <div className="logo">
+    <nav className={`navbar${visible ? " navbar--visible" : ""}${scrolled ? " navbar--scrolled" : ""}`}>
+      <div className="logo" style={{ cursor: "pointer" }} onClick={() => {
+  const hero = document.getElementById("home");
+  if (hero) hero.scrollIntoView({ behavior: "smooth" });
+}}>
         <img
           src={isLightMode ? LogoDark : LogoLight}
           alt="Gainova Logo"
@@ -138,7 +149,30 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                 {label}
               </button>
             ) : (
-              <NavLink to={path} className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink
+                to={path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    // Map route to hero section id
+                    const sectionMap = {
+                      "/": "home",
+                      "/about": "about-hero",
+                      "/teams": "teams-hero",
+                      "/podcast": "podcast-hero",
+                      "/features": "features-hero",
+                    };
+                    const sectionId = sectionMap[path];
+                    const hero = sectionId ? document.getElementById(sectionId) : null;
+                    if (hero) {
+                      hero.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }, 100);
+                }}
+              >
                 {label}
               </NavLink>
             )}
@@ -187,7 +221,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                 }}
                 style={{
                   background: "none",
-                  border: "none",
+                  border: "none", 
                   color: "inherit",
                   font: "inherit",
                   cursor: "pointer",
@@ -197,7 +231,30 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                 {label}
               </button>
             ) : (
-              <NavLink to={path} className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink
+                to={path}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setTimeout(() => {
+                    // Map route to hero section id
+                    const sectionMap = {
+                      "/": "home",
+                      "/about": "about-hero",
+                      "/teams": "teams-hero",
+                      "/podcast": "podcast-hero",
+                      "/features": "features-hero",
+                    };
+                    const sectionId = sectionMap[path];
+                    const hero = sectionId ? document.getElementById(sectionId) : null;
+                    if (hero) {
+                      hero.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }, 100);
+                }}
+              >
                 {label}
               </NavLink>
             )}

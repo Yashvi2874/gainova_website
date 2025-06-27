@@ -1,6 +1,6 @@
 // App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import HomePage from './components/Home/HomePage';
@@ -29,11 +29,16 @@ const App = () => {
   // Toggle function
   const toggleLightMode = () => setIsLightMode((prev) => !prev);
 
+  const [footerVisible, setFooterVisible] = useState(false);
+
   return (
     <Router>
-      <Navbar isLightMode={isLightMode} toggleLightMode={toggleLightMode} />
+      {!footerVisible && (
+        <Navbar isLightMode={isLightMode} toggleLightMode={toggleLightMode} />
+      )}
+      <ScrollToHeroSection />
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<Layout setFooterVisible={setFooterVisible} />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/teams" element={<TeamsPage />} />
@@ -45,5 +50,37 @@ const App = () => {
     </Router>
   );
 };
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+}
+
+function ScrollToHeroSection() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Map route to hero section id
+    const sectionMap = {
+      "/": "home",
+      "/about": "about-hero",
+      "/teams": "teams-hero",
+      "/podcast": "podcast-hero",
+      "/features": "features-hero",
+    };
+    const sectionId = sectionMap[pathname];
+    if (sectionId) {
+      const hero = document.getElementById(sectionId);
+      if (hero) {
+        hero.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
+}
 
 export default App;

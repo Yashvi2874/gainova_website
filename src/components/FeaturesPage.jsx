@@ -33,6 +33,7 @@ const FeaturesPage = () => {
       /> */}
 
       <section
+        id="features-hero"
         className="section"
         style={{
           minHeight: "calc(100vh - 100px)", // Adjust based on navbar height
