@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import Navbar from "../components/Navbar";
+import Navbar from "./Navbar/Navbar";
+import TeamMember from "./TeamMember";
 
 const teamMembers = [
   {
@@ -39,80 +40,40 @@ const TeamsPage = () => {
 
   return (
     <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      {/* <Navbar
+      <Navbar
         sections={[]}
         activeSection="teams"
         isLightMode={isLightMode}
         toggleLightMode={() => setIsLightMode((v) => !v)}
-      /> */}
+      />
 
-      <section
-        id="teams-hero"
-        className="section"
-        style={{
-          minHeight: "calc(100vh - 100px)",
-          width: "100vw",
-          padding: "2rem",
-          boxSizing: "border-box",
-        }}
-      >
-        {/* ...hero content... */}
-      </section>
+      <div>
+        <h1 align="center" className="text-[#ff914d]">Guidance</h1>
 
-      <section
-        className="section"
-        style={{
-          minHeight: "calc(100vh - 100px)",
-          width: "100vw",
-          padding: "2rem",
-          boxSizing: "border-box",
-        }}
-      >
-        <h1 className="main-heading" style={{ marginBottom: "2rem" }}>
-          <span className="logo-orange">Our Team</span>
-        </h1>
-        <div
-          className="team-grid"
-          style={{
-            display: "grid",
-            gap: "2rem",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          }}
-        >
-          {teamMembers.map((member, idx) => (
-            <div
-              key={idx}
-              style={{
-                background: isLightMode ? "#f5f5f5" : "#1e1e1e",
-                border: "1px solid #ff6b35",
-                borderRadius: "8px",
-                padding: "1rem",
-                textAlign: "center",
-              }}
-            >
+        <div className="flex flex-row justify-center items-center gap-10 max-md:flex-col items-center pt-6">
+          <div className="flex flex-col items-center text-center">
+            <div className="relative group rounded-full w-60 h-60">
               <img
-                src={member.image}
-                alt={member.name}
-                style={{ width: "100%", borderRadius: "6px" }}
+                className="rounded-full w-full h-full object-cover"
+                src="https://media.licdn.com/dms/image/v2/D4D03AQEf3-o5dA_Gpw/profile-displayphoto-shrink_200_200/B4DZdO.WFFGgAY-/0/1749376657194?e=1756339200&v=beta&t=INFp24JqaxJL-BA8w00LTZ9DXqHBUSCVXvJpf4B_oTE"
+                alt="..."
               />
-              <h3 style={{ margin: "0.75rem 0" }}>{member.name}</h3>
-              <a
-                href={member.profile}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  color: "#ff6b35",
-                  fontWeight: "500",
-                  textDecoration: "none",
-                }}
-              >
-                View Profile
-              </a>
+              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-lg font-bold hidden group-hover:flex rounded-full">
+                Hi
+              </div>
             </div>
-          ))}
+            <h3 className="text-2xl font-bold">Vinayak Pai</h3>
+            <p className="text-muted">Faculty Advisor</p>
+          </div>
+
+          <TeamMember 
+          img="https://media.licdn.com/dms/image/v2/D4D03AQEf3-o5dA_Gpw/profile-displayphoto-shrink_200_200/B4DZdO.WFFGgAY-/0/1749376657194?e=1756339200&v=beta&t=INFp24JqaxJL-BA8w00LTZ9DXqHBUSCVXvJpf4B_oTE"
+          name="Vinayak Pai"
+          role="Student"
+          />
         </div>
-      </section>
-    </div>
+      </div>
+</div>
   );
 };
 
