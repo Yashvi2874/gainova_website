@@ -1,6 +1,4 @@
-/* Navbar */
 .navbar {
-  font-family: 'Garet Book', 'Livvic', Arial, Helvetica, sans-serif !important;
   position: fixed;
   top: 0;
   width: 100%;
@@ -8,12 +6,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   transition: box-shadow 0.3s;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   opacity: 0;
   transform: translateY(-40px);
-  transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1);
+  background: transparent;
+  transition: background 0.3s, backdrop-filter 0.3s;
+  /* transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1); */
+}
+
+.navbar,
+.nav-links,
+.nav-links a,
+.nav-links button,
+.nav-contact-btn {
+  font-family: 'Livvic', Arial, Helvetica, sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.navbar--scrolled {
+  background: rgba(24, 24, 24, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+}
+
+body.light-mode .navbar--scrolled {
+  background: rgba(255,255,255,0.85);
+  color: #242423;
 }
 
 .navbar--visible {
@@ -21,14 +41,56 @@
   transform: translateY(0);
 }
 
-body.dark-mode .navbar {
-  background-color: rgba(24,24,24,0.85) !important;
-  border-bottom: 2px solid #ff914d;
+.nav-links a:hover,
+.nav-links a:focus {
+  cursor: pointer;
 }
 
+/* Theme */
+body.dark-mode .navbar,
 body.light-mode .navbar {
-  background-color: rgba(255,255,255,0.85) !important;
-  border-bottom: 2px solid #ff914d;
+  /* background-color: rgba(24,24,24,0.85) !important; */
+  /* background-color: rgba(255,255,255,0.85) !important; */
+}
+
+body.dark-mode .logo-light {
+  color: #f0f0f0;
+}
+
+body.dark-mode .nav-links button {
+  color: #f0f0f0 !important;
+}
+
+body.light-mode .logo-light {
+  color: #213547;
+}
+
+body.light-mode .nav-links li button{
+  color: #213547 !important;
+}
+
+body.light-mode .nav-links button {
+  color: #213547 !important;
+}
+
+body.dark-mode .nav-links button.active {
+  color: #ff914d !important;
+  border-bottom-color: #d4be69;
+  font-weight: 200;
+}
+
+body.light-mode .nav-links button.active{
+  color: #ed6b4d !important;
+  border-bottom-color: #d4be69;
+  font-weight: 200;
+}
+
+body.light-mode .nav-links button:hover {
+  border-bottom-color: #d4be69;
+}
+
+body.dark-mode .nav-links button:hover {
+  border-bottom-color: #d4be69;
 }
 
 /* === LOGO COLORS & RESPONSIVE === */
@@ -38,9 +100,9 @@ body.light-mode .navbar {
   min-width: 0;
 }
 .logo-image {
-  height: 70px;
+  height: 80px;
   width: auto;
-  max-width: 180px;
+  max-width: 210px;
   object-fit: contain;
   transition: height 0.3s, max-width 0.3s;
 }
@@ -65,20 +127,35 @@ body.light-mode .navbar {
   list-style: none;
 }
 
-/* Navbar link base styles */
-.nav-links a {
+/* Unified navlink and Contact Us button styles */
+.nav-links a,
+.nav-contact-btn {
   position: relative;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.3s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
-  padding: 0.25em 0;
   display: inline-block;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 200;
+  cursor: pointer;
+  padding: 0.25em 0 !important;
+  outline: none;
+  box-shadow: none;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s;
 }
 
-/* Underline effect */
-.nav-links a::after {
+
+/* Ensure active+hover scales for both nav-links and Contact Us */
+.nav-links a.active:hover,
+.nav-contact-btn.active:hover {
+  transform: scale(1.07) !important;
+  font-weight: 200 !important;
+}
+
+/* Underline for both using ::after */
+.nav-links a::after,
+.nav-contact-btn::after {
   content: "";
   display: block;
   position: absolute;
@@ -86,28 +163,40 @@ body.light-mode .navbar {
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #ff914d;
-  transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+  background: #ff914d; /* default, overridden in light mode below */
+  transition: width 0.3s, left 0.3s, background 0.3s;
 }
 
-/* Hover effect: color, scale, underline grows from center */
-.nav-links a:hover {
-  color: #ff914d;
-  transform: scale(1.07);
+/* Scale and underline on hover/focus/active for both */
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active,
+.nav-contact-btn:hover,
+.nav-contact-btn:focus,
+.nav-contact-btn.active {
+  transform: scale(1.07) !important;
+  font-weight: 500 !important;
 }
-.nav-links a:hover::after {
+
+.nav-links a:hover::after,
+.nav-links a:focus::after,
+.nav-links a.active::after,
+.nav-contact-btn:hover::after,
+.nav-contact-btn:focus::after,
+.nav-contact-btn.active::after {
   width: 100%;
   left: 0;
 }
 
-/* Active link: highlight color, bold, underline always visible */
-.nav-links a.active {
-  color: #ff914d;
-  font-weight: 700;
+/* Light mode: orange underline */
+body.light-mode .nav-links a::after,
+body.light-mode .nav-contact-btn::after {
+  background: #ed6b4d;
 }
-.nav-links a.active::after {
-  width: 100%;
-  left: 0;
+
+/* Dark mode: orange underline */
+body.dark-mode .nav-links a::after,
+body.dark-mode .nav-contact-btn::after {
   background: #ff914d;
 }
 
@@ -118,38 +207,25 @@ body.light-mode .navbar {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.5rem;
   border-bottom: 3px solid transparent;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-body.light-mode .nav-links button:hover,
-body.dark-mode .nav-links button:hover {
-  border-bottom-color: #ff914d;
-}
-
 .nav-links button.active {
-  border-bottom-color: #ff914d;
+  border-bottom-color: #d4be69;
   font-weight: 600;
   color: #ff914d;
 }
 
-/* Responsive Navbar Behavior */
-@media (max-width: 1024px) {
-  .logo-image {
-    height: 50px;
-    max-width: 120px;
-  }
-}
-
-/* Hide mobile nav toggle and dropdown by default */
+/* Hide mobile nav toggle and dropdown by default (for desktop) */
 .mobile-nav-toggle,
 .mobile-dropdown {
   display: none;
 }
 
-/* Responsive: below 768px show mobile nav, hide desktop nav */
-@media (max-width: 767px) {
+/* Responsive Navbar Behavior */
+@media (max-width: 1023px) {
   .desktop-nav {
     display: none;
   }
@@ -159,7 +235,7 @@ body.dark-mode .nav-links button:hover {
     gap: 1rem;
   }
   .mobile-dropdown {
-    display: none;
+    margin-top: 0;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -169,21 +245,30 @@ body.dark-mode .nav-links button:hover {
     height: 100vh;
     padding: 5rem 2rem 2rem 2rem;
     z-index: 9999;
-    background-color: rgba(24,24,24,0.85); /* dark mode default, override below */
-    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    background-color: rgba(24,24,24,0.85);
     opacity: 0;
+    pointer-events: none;
     transform: translateY(-100%);
-    transition:
-      transform 0.4s cubic-bezier(.4,0,.2,1),
-      opacity 0.3s cubic-bezier(.4,0,.2,1);
     gap: 2rem;
     border-top: none !important;
-  }
-  .mobile-dropdown.open {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
   }
+  
+  .mobile-dropdown.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition:
+      transform 1s cubic-bezier(.4,0,.2,1),
+      opacity 0.4s cubic-bezier(.4,0,.2,1);
+  }
+
+  .mobile-dropdown.closing {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   body.light-mode .mobile-dropdown {
     background-color: rgba(255,255,255,0.85);
   }
@@ -202,11 +287,17 @@ body.dark-mode .nav-links button:hover {
     transition: color 0.2s;
     font-weight: 600;
   }
-  .mobile-dropdown a.active,
-  .mobile-dropdown a:hover {
-    color: #ff914d;
+   .mobile-dropdown a.active,
+   .mobile-dropdown .nav-contact-btn.active {
+    color: #ff914d !important;
   }
-  .mobile-dropdown .close-btn {
+
+  body.light-mode .mobile-dropdown a.active,
+  body.light-mode .mobile-dropdown .nav-contact-btn.active {
+    color: #ed6b4d !important;
+  }
+  
+  .mobile-dropdown .close-btn .nav-contact-btn{
     position: absolute;
     top: 1.5rem;
     right: 2rem;
@@ -222,15 +313,41 @@ body.dark-mode .nav-links button:hover {
     justify-content: center;
   }
   .mobile-dropdown .close-btn:hover {
-    color: #ff914d;
+    color: #ed6b4d;
   }
   .logo-image {
-    height: 36px;
+    height: 60px;
+    max-width: 160px;
+  }
+  .mobile-dropdown  {
+    font-size: 1.5rem;
+    padding: 2rem 0;
+    color: inherit;
+    background: none;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+    transition: color 0.2s;
+  }
+}
+
+@media (max-width: 321px) {
+  .navbar{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  .logo-image {
+    height: 50px;
+    max-width: 150px;
   }
 }
 
 /* Hamburger button styles */
 .hamburger-toggle {
+  z-index: 10005;
   background: none;
   border: none;
   font-size: 2rem;
@@ -239,6 +356,12 @@ body.dark-mode .nav-links button:hover {
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
+}
+
+.hamburger-toggle:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 /* Prevent body scroll when mobile menu is open */
@@ -255,9 +378,13 @@ body.dark-mode .nav-links a {
   color: #f0f0f0;
 }
 
-body.light-mode .nav-links a.active,
 body.dark-mode .nav-links a.active {
   color: #ff914d;
+  border-bottom-color: #d4be69;
+}
+
+body.light-mode .nav-links a.active{
+  color: #ed6b4d;
 }
 
 /* Hamburger icon color */
@@ -271,4 +398,36 @@ body.light-mode .mobile-nav-toggle svg,
 body.light-mode .mobile-nav-toggle {
   color: #213547;
   fill: #213547;
+}
+
+/* Add underline using ::after, matching nav-links a */
+.nav-contact-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #ff914d; /* default, overridden below for light mode */
+  transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1), background 0.3s;
+}
+
+/* Show underline on hover/focus */
+.nav-contact-btn:hover::after,
+.nav-contact-btn:focus::after {
+  width: 100%;
+  left: 0;
+} 
+
+/* Light mode: use #ed6b4d for underline */
+body.light-mode .nav-links a::after,
+body.light-mode .nav-contact-btn::after {
+  background: #ed6b4d;
+}
+
+.nav-contact-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }

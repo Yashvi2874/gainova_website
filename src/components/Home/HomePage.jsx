@@ -297,11 +297,6 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section id="contact" className="section contact">
-        <h2>Contact Us</h2>
-        <p>📧 hello@reallygreatsite.com</p>
-        <p>🌐 www.reallygreatsite.com</p>
-      </section>
     </div>
   );
 };

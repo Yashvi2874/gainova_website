@@ -219,6 +219,42 @@ const FeaturesPage = () => {
      </section>
    </div>
  );
+  return (
+    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
+      {/* <Navbar
+        sections={[]}
+        activeSection="features"
+        isLightMode={isLightMode}
+        toggleLightMode={() => setIsLightMode((v) => !v)}
+      /> */}
+
+      <section
+        id="features-hero"
+        className="section"
+        style={{
+          minHeight: "calc(100vh - 100px)", // Adjust based on navbar height
+          width: "100vw",
+          padding: "2rem",
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <h1 className="main-heading">
+          <span className="logo-orange">Features</span>
+        </h1>
+        <ul className="home-description" style={{ marginTop: "1rem" }}>
+          <li>Smart Routing</li>
+          <li>Responsive Design</li>
+          <li>API Integration</li>
+        </ul>
+        <p className="home-description" style={{ marginTop: "2rem" }}>
+          Built with care by Eeshaja.
+        </p>
+      </section>
+    </div>
+  );
 };
 
 

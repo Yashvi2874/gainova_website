@@ -47,6 +47,19 @@ const TeamsPage = () => {
       /> */}
 
       <section
+        id="teams-hero"
+        className="section"
+        style={{
+          minHeight: "calc(100vh - 100px)",
+          width: "100vw",
+          padding: "2rem",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* ...hero content... */}
+      </section>
+
+      <section
         className="section"
         style={{
           minHeight: "calc(100vh - 100px)",
