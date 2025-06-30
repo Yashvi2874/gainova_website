@@ -347,5 +347,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
-document.body.style.paddingTop = "100px";

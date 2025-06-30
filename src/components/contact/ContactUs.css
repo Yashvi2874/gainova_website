@@ -1,5 +1,3 @@
-
-
 .footer {
   width: 100vw;
   background: #181818;
@@ -152,6 +150,7 @@ body.light-mode .footer-text {
 
 @media (max-width: 769px) {
   .footer-icons-row {
+    align-items: center;
     flex-direction: column;
     gap: 1.2rem;
     max-width: 100%;
@@ -168,7 +167,7 @@ body.light-mode .footer-text {
 }
 
 /* Show mobile icon row and hide groups below 426px */
-@media (max-width: 426px) {
+@media (max-width: 700px) {
     .footer{
         padding: 2rem;
     }
