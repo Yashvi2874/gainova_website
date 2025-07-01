@@ -7,13 +7,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
-  transition: box-shadow 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   opacity: 0;
   transform: translateY(-40px);
   background: transparent;
   transition: background 0.3s, backdrop-filter 0.3s;
-  /* transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1); */
+  transition: opacity 1.2s cubic-bezier(.4,0,.2,1), transform 1.2s cubic-bezier(.4,0,.2,1);
 }
 
 .navbar,
@@ -47,10 +45,13 @@ body.light-mode .navbar--scrolled {
 }
 
 /* Theme */
-body.dark-mode .navbar,
+body.dark-mode .navbar{
+    background-color: rgba(24, 24, 24, 0.589) !important;
+
+}
+
 body.light-mode .navbar {
-  /* background-color: rgba(24,24,24,0.85) !important; */
-  /* background-color: rgba(255,255,255,0.85) !important; */
+  background-color: rgba(255, 255, 255, 0.564) !important;
 }
 
 body.dark-mode .logo-light {
@@ -143,6 +144,10 @@ body.dark-mode .nav-links button:hover {
   box-shadow: none;
   text-decoration: none;
   transition: color 0.3s, transform 0.2s;
+}
+
+.nav-contact-btn{
+  margin-right: 1rem;
 }
 
 
@@ -430,4 +435,133 @@ body.light-mode .nav-contact-btn::after {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
+}
+
+.has-dropdown {
+  position: relative;
+}
+
+/* Dropdown menu */
+.has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  background: #fff;
+  color: #232323;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  z-index: 200;
+  padding: 1.2rem;
+  margin-top: 1.2rem;
+  border: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-16px);
+  transition: 
+    opacity 0.3s cubic-bezier(.4,0,.2,1),
+    transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.has-dropdown:hover > .dropdown {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  margin: 0;
+  padding: 0;
+  min-width: 180px;
+  max-width: 220px;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  color: #232323;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background: none;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: none;
+}
+
+/* Ensure dropdown links never get the orange active color or underline */
+.has-dropdown .dropdown a.active,
+.has-dropdown .dropdown a:focus,
+.has-dropdown .dropdown a:hover {
+  color: #232323 !important;      /* or #fff for dark mode, see below */
+  background: none !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* For dark mode dropdowns */
+body.dark-mode .has-dropdown .dropdown a.active,
+body.dark-mode .has-dropdown .dropdown a:focus,
+body.dark-mode .has-dropdown .dropdown a:hover {
+  color: #fff !important;
+}
+
+.has-dropdown .dropdown a::after {
+  display: none !important;
+}
+
+/* Dropdown link hover effect (optional, subtle) */
+.dropdown a:hover,
+.dropdown a:focus {
+  background: #f5f5f5;
+  color: #ed6b4d;
+}
+
+body.light-mode .dropdown a:hover,
+body.light-mode .dropdown a:focus {
+  /* background: #ed6b4d; */
+  color: #fff;
+}
+
+/* Default (light) dropdown */
+.has-dropdown .dropdown {
+  background: #fff;
+  color: #232323;
+}
+
+/* Dark mode dropdown */
+body.dark-mode .has-dropdown .dropdown {
+  background: #232323;
+  color: #fff;
+}
+
+/* Light mode dropdown (optional, for clarity) */
+body.light-mode .has-dropdown .dropdown {
+  background: #fff;
+  color: #232323;
+}
+
+/* Dropdown link hover effect for both themes */
+.has-dropdown .dropdown a:hover,
+.has-dropdown .dropdown a:focus {
+  background: #ed6b4d;
+  color: #fff;
+}
+
+/* Optional: subtle hover for dark mode */
+body.dark-mode .has-dropdown .dropdown a:hover,
+body.dark-mode .has-dropdown .dropdown a:focus {
+  background: #444;
+  color: #fff;
 }

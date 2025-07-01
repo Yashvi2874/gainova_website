@@ -37,10 +37,28 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
   };
 
   const links = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/teams", label: "Teams" },
-    { path: "/podcast", label: "Podcast" },
+    { path: "/", label: "Home", subsections: [
+        { path: "/#goal", label: "Our goal" },
+        { path: "/#podcast", label: "Our podcasts" },
+        { path: "/#features", label: "Our features" },
+        { path: "/#faqs", label: "Faqs" }
+    ]},
+    { path: "/about", label: "About", subsections: [
+        { path: "/about#whatisgainova", label: "What is Gainova?" },
+        { path: "/about#whygainova", label: "Why Gainova?" }
+      ]
+    },
+    { path: "/teams", label: "Teams", subsections: [
+        { path: "/teams#mentor", label: "Our Mentor" },
+        { path: "/teams#research", label: "Research Team" },
+        { path: "/teams#web-dev", label: "Web-dev Team" },
+        { path: "/teams#marketing", label: "Marketing Team" }
+      ]
+    },
+    { path: "/podcast", label: "Podcast", subsections: [
+        { path: "/podcast#purpose", label: "Purpose" },
+        { path: "/podcast#episodes", label: "Episode:1 Mr. Speaker coming soon" }
+    ]},
     { path: "/features", label: "Features" },
     { label: "Contact Us" }, // No path!
   ];
@@ -122,8 +140,8 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
         />
       </div>
       <ul className="nav-links desktop-nav">
-        {links.map(({ path, label }) => (
-          <li key={label}>
+        {links.map(({ path, label, subsections }) => (
+          <li key={label} className={subsections ? "has-dropdown" : ""}>
             {label === "Contact Us" ? (
               <button
                 className="nav-contact-btn"
@@ -149,41 +167,52 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                 {label}
               </button>
             ) : (
-              <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    // Map route to hero section id
-                    const sectionMap = {
-                      "/": "home",
-                      "/about": "about-hero",
-                      "/teams": "teams-hero",
-                      "/podcast": "podcast-hero",
-                      "/features": "features-hero",
-                    };
-                    const sectionId = sectionMap[path];
-                    const hero = sectionId ? document.getElementById(sectionId) : null;
-                    if (hero) {
-                      hero.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  }, 100);
-                }}
-              >
-                {label}
-              </NavLink>
+              <>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      // Map route to hero section id
+                      const sectionMap = {
+                        "/": "home",
+                        "/about": "about-hero",
+                        "/teams": "teams-hero",
+                        "/podcast": "podcast-hero",
+                        "/features": "features-hero",
+                      };
+                      const sectionId = sectionMap[path];
+                      const hero = sectionId ? document.getElementById(sectionId) : null;
+                      if (hero) {
+                        hero.scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }, 100);
+                  }}
+                >
+                  {label}
+                </NavLink>
+                {subsections && (
+                  <ul className="dropdown">
+                    {subsections.map(sub => (
+                      <li key={sub.label}>
+                        <NavLink to={sub.path}>{sub.label}</NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </>
             )}
           </li>
         ))}
-        <li>
+        {/* <li>
           <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} />
-        </li>
+        </li> */}
       </ul>
       <div className="mobile-nav-toggle">
-        <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} />
+        {/* <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} /> */}
         <button
           className="hamburger-toggle"
           onClick={handleMobileToggle}
