@@ -753,3 +753,7 @@ body.dark-mode {
 .tune-in-text {
   color: var(--accent);
 }
+
+hr {
+  color: #ff914d;
+}
