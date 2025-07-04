@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { FaPlay, FaChevronDown, FaGlobe, FaUsers, FaRocket, FaBrain, FaLightbulb, FaCode, FaGraduationCap } from "react-icons/fa";
 import ContactForm from "../../components/contact/ContactForm";
-import "./Homepage.css";
+import "./HomePage.css";
 import LogoLight from "../../../public/images/Pages/Logo_light.svg";
 import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
 import { motion, useScroll, useTransform } from "motion/react";
