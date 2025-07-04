@@ -1,8 +1,7 @@
-// src/components/Navbar.js
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import LogoLight from "../../assets/Logo_light.svg";
-import LogoDark from "../../assets/Logo_dark.svg";
+import LogoLight from "../../../public/images/Pages/Logo_light.svg";
+import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
 import './Navbar.css';
 
 const Navbar = ({ isLightMode, toggleLightMode }) => {
@@ -13,13 +12,25 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
   const location = useLocation();
 
   useEffect(() => {
-    setVisible(false); // Reset animation
-    const timer = setTimeout(() => setVisible(true), 100); // Re-trigger animation
-    return () => clearTimeout(timer);
-  }, [location.pathname]); // Run on every route change
+  document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+}, [isMobileMenuOpen]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 0);
+    setVisible(false);
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.getElementById("home");
+      if (hero) {
+        const heroHeight = hero.offsetHeight;
+        setScrolled(window.scrollY > heroHeight - 80); // 80 = navbar height
+      } else {
+        setScrolled(window.scrollY > 50);
+      }
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -30,18 +41,35 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
       setTimeout(() => {
         setIsMobileMenuOpen(false);
         setIsClosing(false);
-      }, 600); // Match the CSS transition duration
+      }, 600);
     } else {
       setIsMobileMenuOpen(true);
     }
   };
 
+  const handleSectionNavigation = (path) => {
+    const [route, section] = path.split('#');
+    if (route && route !== location.pathname) {
+      window.location.href = path;
+    } else if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const links = [
-    { path: "/", label: "Home", subsections: [
-        { path: "/#goal", label: "Our goal" },
-        { path: "/#podcast", label: "Our podcasts" },
-        { path: "/#features", label: "Our features" },
-        { path: "/#faqs", label: "Faqs" }
+    { 
+      path: "/", 
+      label: "Home", 
+      subsections: [
+        { path: "/#goal", label: "Our Goal" },
+        { path: "/#features", label: "Our Features" },
+        { path: "/#collaborate", label: "Collaborate" },
+        { path: "/#podcast", label: "Our Podcasts" },
+        { path: "/#faqs", label: "FAQs" }
     ]},
     { path: "/about", label: "About", subsections: [
         { path: "/about#whatisgainova", label: "What is Gainova?" },
@@ -49,10 +77,12 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
       ]
     },
     { path: "/teams", label: "Teams", subsections: [
-        { path: "/teams#mentor", label: "Our Mentor" },
+        { path: "/teams#lead", label: "Our Leads" },
+        { path: "/teams#projectmanagement", label: "Project Management Team" },
         { path: "/teams#research", label: "Research Team" },
-        { path: "/teams#web-dev", label: "Web-dev Team" },
-        { path: "/teams#marketing", label: "Marketing Team" }
+        { path: "/teams#tech", label: "Tech Team" },
+        { path: "/teams#marketing", label: "Marketing Team" },
+        { path: "/teams#creative", label: "Creative Team" }
       ]
     },
     { path: "/podcast", label: "Podcast", subsections: [
@@ -60,79 +90,37 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
         { path: "/podcast#episodes", label: "Episode:1 Mr. Speaker coming soon" }
     ]},
     { path: "/features", label: "Features" },
-    { label: "Contact Us" }, // No path!
+    { label: "Contact Us" },
   ];
 
-  // Custom Toggle Switch Component
   const ToggleSwitch = ({ checked, onChange }) => {
     if (typeof onChange !== "function") {
       console.error("ToggleSwitch missing onChange prop!");
     }
     return (
-      <label
-        style={{
-          display: "inline-block",
-          width: "44px",
-          height: "24px",
-          position: "relative",
-          cursor: "pointer",
-        }}
-      >
+      <label className="toggle-switch">
         <input
           type="checkbox"
           checked={checked}
-          onChange={() => onChange()} // <-- call without event
+          onChange={() => onChange()}
           aria-label="Toggle light mode"
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            opacity: 0,
-            margin: 0,
-            cursor: "pointer",
-            zIndex: 2,
-          }}
         />
-        <span
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: checked ? "#d4be69" : "#333",
-            borderRadius: "24px",
-            transition: "background 0.3s",
-            zIndex: 1,
-          }}
-        />
-        <span
-          style={{
-            position: "absolute",
-            top: "2px",
-            left: checked ? "22px" : "2px",
-            width: "20px",
-            height: "20px",
-            background: checked ? "#242423" : "#d4be69", // dark bg when not checked
-            borderRadius: "50%",
-            boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
-            transition: "left 0.3s, background 0.3s",
-            zIndex: 1,
-          }}
-        />
+        <span className="toggle-slider"></span>
+        <span className="toggle-knob"></span>
       </label>
     );
   };
 
-  console.log("Navbar scrolled state:", scrolled);
   return (
     <nav className={`navbar${visible ? " navbar--visible" : ""}${scrolled ? " navbar--scrolled" : ""}`}>
       <div className="logo" style={{ cursor: "pointer" }} onClick={() => {
-  const hero = document.getElementById("home");
-  if (hero) hero.scrollIntoView({ behavior: "smooth" });
-}}>
+        if (location.pathname === '/') {
+          const hero = document.getElementById("home");
+          if (hero) hero.scrollIntoView({ behavior: "smooth" });
+        } else {
+          window.location.href = '/';
+        }
+      }}>
         <img
           src={isLightMode ? LogoDark : LogoLight}
           alt="Gainova Logo"
@@ -145,25 +133,16 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
             {label === "Contact Us" ? (
               <button
                 className="nav-contact-btn"
-                onClick={e => {
-                  e.preventDefault();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    const footer = document.querySelector("footer.footer");
-                    if (footer) {
-                      footer.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 100);
-                }}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "inherit",
-                  font: "inherit",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
+                onClick={(e) => {
+  e.preventDefault();
+  setIsMobileMenuOpen(false);
+  setTimeout(() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 100);
+}}>
                 {label}
               </button>
             ) : (
@@ -174,7 +153,6 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setTimeout(() => {
-                      // Map route to hero section id
                       const sectionMap = {
                         "/": "home",
                         "/about": "about-hero",
@@ -198,7 +176,15 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                   <ul className="dropdown">
                     {subsections.map(sub => (
                       <li key={sub.label}>
-                        <NavLink to={sub.path}>{sub.label}</NavLink>
+                        <button 
+                          className="dropdown-link"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleSectionNavigation(sub.path);
+                          }}
+                        >
+                          {sub.label}
+                        </button>
                       </li>
                     ))}
                   </ul>
@@ -207,10 +193,11 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
             )}
           </li>
         ))}
-        {/* <li>
-          <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} />
-        </li> */}
+        <li>
+          {/* <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} /> */}
+        </li>
       </ul>
+      
       <div className="mobile-nav-toggle">
         {/* <ToggleSwitch checked={isLightMode} onChange={toggleLightMode} /> */}
         <button
@@ -218,78 +205,75 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
           onClick={handleMobileToggle}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <line x1="8" y1="8" x2="24" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <line x1="24" y1="8" x2="8" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          </svg> : "☰"}
+          {isMobileMenuOpen ? (
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <line x1="8" y1="8" x2="24" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="24" y1="8" x2="8" y2="24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          ) : (
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <line x1="6" y1="9" x2="26" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="6" y1="16" x2="26" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="6" y1="23" x2="26" y2="23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          )}
         </button>
       </div>
+      {isMobileMenuOpen && (
+  <div className="mobile-dropdown open">
+    <button className="close-btn" onClick={handleMobileToggle} aria-label="Close menu">
+      &times;
+    </button>
       <ul className={`mobile-dropdown${isMobileMenuOpen ? " open" : ""}${isClosing ? " closing" : ""}`}>
+  {links.map(({ path, label, subsections }) => (
+    <li key={label}>
+      {label === "Contact Us" ? (
         <button
-          className="close-btn"
-          onClick={handleMobileToggle}
-          aria-label="Close menu"
+          className="nav-contact-btn"
+          onClick={(e) => {
+  e.preventDefault();
+  setIsMobileMenuOpen(false);
+  setTimeout(() => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }, 100);
+}}
         >
-          {/* SVG close icon */}
-          
+          {label}
         </button>
-        {links.map(({ path, label }) => (
-          <li key={label}>
-            {label === "Contact Us" ? (
-              <button
-                className="nav-contact-btn"
-                onClick={e => {
-                  e.preventDefault();
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    const footer = document.querySelector("footer.footer");
-                    if (footer) {
-                      footer.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 100);
-                }}
-                style={{
-                  background: "none",
-                  border: "none", 
-                  color: "inherit",
-                  font: "inherit",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
-              >
-                {label}
-              </button>
-            ) : (
-              <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    // Map route to hero section id
-                    const sectionMap = {
-                      "/": "home",
-                      "/about": "about-hero",
-                      "/teams": "teams-hero",
-                      "/podcast": "podcast-hero",
-                      "/features": "features-hero",
-                    };
-                    const sectionId = sectionMap[path];
-                    const hero = sectionId ? document.getElementById(sectionId) : null;
-                    if (hero) {
-                      hero.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  }, 100);
-                }}
-              >
-                {label}
-              </NavLink>
-            )}
-          </li>
-        ))}
-      </ul>
+      ) : (
+        <NavLink
+          to={path}
+          className={({ isActive }) => (isActive ? "active" : "")}
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setTimeout(() => {
+              const sectionMap = {
+                "/": "home",
+                "/about": "about-hero",
+                "/features": "features-hero", 
+                "/teams": "teams-hero",
+                "/podcast": "podcast-hero",
+              };
+              const hero = sectionMap[path] && document.getElementById(sectionMap[path]);
+              if (hero) {
+                hero.scrollIntoView({ behavior: "smooth" });
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }, 100);
+          }}
+        >
+          {label}
+        </NavLink>
+      )}
+    </li>
+  ))}
+</ul>
+  </div>
+)}
     </nav>
   );
 };

@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import podcastVideo from "../assets/podcast_1.mp4";
+// import Navbar from "../components/Navbar/Navbar";
+import podcastVideo from "./../../public/images/Pages/podcast_1.mp4";
 
 // ✅ Hook for scroll-based animation
 const useSlideInOnScroll = () => {
@@ -155,7 +154,7 @@ const PodcastPage = () => {
   }, [isLightMode]);
 
   return (
-    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
+    <div className={` ${isLightMode ? "light-mode" : "dark-mode"}`}>
       {/* <Navbar
         sections={[]}
         activeSection="podcast"
@@ -166,7 +165,7 @@ const PodcastPage = () => {
       <section className="podcast-page">
         <div className="container">
           {/* Episode 1 */}
-          <div className="podcast-item featured-episode">
+          <div className="podcast-item featured-episode" style={{ marginTop: '5rem' }}>
             <PodcastCard
               src={podcastVideo}
               title={

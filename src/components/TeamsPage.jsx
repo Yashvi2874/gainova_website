@@ -85,7 +85,7 @@ const TeamsPage = () => {
   // In your actual implementation, you can keep the localStorage code
 
   return (
-    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
+<div className={`homepage min-h-screen w-full font-livvic overflow-hidden`} style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)' }}>
       {/* <Navbar
         sections={[]}
         activeSection="teams"
@@ -93,38 +93,52 @@ const TeamsPage = () => {
         toggleLightMode={() => setIsLightMode((v) => !v)}
       /> */}
 
-      <div className="w-[100vw]">
+      <div className="w-[100vw] mt-20">
         <AnimatedSection delay={0}>
-          <div className="p-6">
-            <h1 align="center" className="text-[#ff914d]">Mentor</h1>
-            <div className="flex flex-row justify-center items-center gap-10 max-md:flex-col items-center pt-6">
-              <TeamMember 
-              img = "aniket.jpeg"
-              name="Dr Aniket Mhala"
-              linkedin="https://www.linkedin.com/in/dr-aniket-mhala-560abaa/"
-              />
-            </div>
-          </div>
-        </AnimatedSection>
+          <AnimatedSection delay={0}>
+  <div className="text-center mt-10 mb-0 relative inline-block w-full">
+    <h1 className="text-6xl font-extrabold text-[#ff914d] inline-block relative pb-4">
+      Meet Our Team
+      <span className="block h-[5px] w-[60%] mt-2 mx-auto bg-gradient-to-r from-transparent via-[#ff914d] to-transparent"></span>
+    </h1>
+  </div>
+</AnimatedSection>
+          <div className="p-0">
+    <div className="flex flex-row justify-center items-start gap-20 max-md:flex-col pt-10 pb-10">
 
-        <AnimatedSection delay={100}>
-          <div className="p-[30px]">
-            <h1 align="center" className="text-[#ff914d]">Student Lead</h1>
-            <div className="flex flex-row justify-center items-center gap-10 max-md:flex-col items-center pt-6">
-              <TeamMember 
-              img = "vedant.png"
-              name="Vedant Shetty"
-              linkedin="https://www.linkedin.com/in/vedant-shetty-315853287/"
-              mail="vedantshetty42@gmail.com"
-              github="PyKnight-vedant"
-              />
-            </div>
-          </div>
+      {/* Mentor Section */}
+      <div className="text-center">
+        <h1 className="text-[#d4be69] m-4 font-semibold">Mentor</h1>
+        <div className="flex justify-center">
+          <TeamMember 
+            img="aniket.jpeg"
+            name="Dr Aniket Mhala"
+            linkedin="https://www.linkedin.com/in/dr-aniket-mhala-560abaa/"
+          />
+        </div>
+      </div>
+
+      {/* Student Lead Section */}
+      <div className="text-center">
+        <h1 className="text-[#d4be69] m-4 font-semibold">Student Lead</h1>
+        <div className="flex justify-center">
+          <TeamMember 
+            img="vedant.png"
+            name="Vedant Shetty"
+            linkedin="https://www.linkedin.com/in/vedant-shetty-315853287/"
+            mail="vedantshetty42@gmail.com"
+            github="PyKnight-vedant"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
         </AnimatedSection>
 
         <AnimatedSection delay={200}>
           <div className="p-6">
-            <h1 align="center" className="text-[#ff914d]">Project Management Team</h1>
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Project Management Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Eeshaja Swami" img="eeshaja.jpg" linkedin="https://www.linkedin.com/in/eeshaja-swami-8445b2210/" mail="eeshaja.swami2005@gmail.com"/>
 
@@ -135,7 +149,7 @@ const TeamsPage = () => {
 
         <AnimatedSection delay={300}>
           <div className="pt-[30px]">
-            <h1 align="center" className="text-[#ff914d]">Research Team</h1>
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Research Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Aaditya Khopade" img="aadityak.png" linkedin="https://www.linkedin.com/in/aaditya-khopade-402122278/" mail="aadityakhopade11@gmail.com"/>
 
@@ -154,7 +168,7 @@ const TeamsPage = () => {
 
         <AnimatedSection delay={400}>
           <div className="pt-[30px]">
-            <h1 align="center" className="text-[#ff914d]">Tech Team</h1>
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Tech Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Mann Shah" img="mann.jpeg" linkedin="https://www.linkedin.com/in/mann-shah-3940a3278/" mail="shmann1306@gmail.com"/>
 
@@ -176,7 +190,7 @@ const TeamsPage = () => {
         
         <AnimatedSection delay={500}>
           <div className="pt-[30px]">
-            <h1 align="center" className="text-[#ff914d]">Marketing Team</h1>
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Marketing Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Harjas Sigh Sethi" img="harjas.png" linkedin="https://www.linkedin.com/in/harjas-sethi-7566b9184/" mail="harjas.singh@somaiya.edu "/>
 
@@ -192,8 +206,8 @@ const TeamsPage = () => {
 
         <AnimatedSection delay={600}>
           <div className="pt-[30px]">
-            <h1 align="center" className="text-[#ff914d]">Creative Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Creative Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[90px]">
               <TeamMember name="Atharva Sawant" img="atharva.jpg" linkedin="http://www.linkedin.com/in/atharva-sawant10" mail="athrsawant@gmail.com" github="AtharvaSawant"/>
 
               <TeamMember name="Mrinali Sharma" img="mrinali.jpg" linkedin="https://www.linkedin.com/in/mrinali-sharma-353b92327/" mail="mrinalish@gmail.com" github="mrinalishh"/>

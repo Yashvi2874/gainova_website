@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar"; // ✅ Make sure Navbar is used
-import evolutionGif from "../assets/Evolution.gif";
+import evolutionGif from "../../public/images/Pages/Evolution.gif";
+import ContactForm from "../components/contact/ContactForm";
 
 const AboutPage = () => {
   const [isLightMode, setIsLightMode] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: light)");
@@ -26,6 +28,10 @@ const AboutPage = () => {
     document.body.classList.toggle("light-mode", isLightMode);
     document.body.classList.toggle("dark-mode", !isLightMode);
   }, [isLightMode]);
+
+  const handleContactUsClick = () => {
+    setIsContactFormOpen(true);
+  };
 
   const themeColors = {
     background: isLightMode ? "#f5f5f5" : "#242423",
@@ -49,9 +55,16 @@ const AboutPage = () => {
   return (
     <>
       <Navbar isLightMode={isLightMode} toggleLightMode={() => setIsLightMode((v) => !v)} />
-      <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`} style={{ backgroundColor: themeColors.background, color: themeColors.text, fontFamily: "Livvic, sans-serif" }}>
+      <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`} style={{
+    background: isLightMode
+      ? themeColors.background
+      : "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)",
+    color: themeColors.text,
+    fontFamily: "Livvic, sans-serif"
+  }}>
         <section style={{
-          marginTop: '1rem',
+          overflow: 'hidden',
+          marginTop: '0rem',
           backgroundImage: `url(${evolutionGif})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -108,26 +121,34 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section style={{ padding: '4rem 1rem', textAlign: 'center' }}>
+        <section style={{ paddingTop: '0rem', padding: '4rem 1rem', textAlign: 'center' }}>
           <h2 style={{ fontSize: '1.8rem', fontWeight: '300', color: themeColors.heading, fontFamily: 'Garet, sans-serif' }}>
             Collaborate, innovate, and transform with the best minds across the globe.
           </h2>
           <p style={{ fontSize: '1rem', color: themeColors.subtext, marginTop: '1rem' }}>
             Join our community and be part of the AI revolution.
           </p>
+          <div className="section-cta mt-4">
+            <button className="cta-button" onClick={handleContactUsClick}>
           <a href="mailto:info@gainova.org" style={{
-            background: themeColors.highlight,
             color: '#fff',
-            padding: '1rem 2rem',
             borderRadius: '30px',
             display: 'inline-block',
-            marginTop: '2rem',
             textDecoration: 'none',
             fontWeight: 'bold'
           }}>
-            Get Started Today
+            Get started today!
+            <span className="arrow-icon">→</span>
           </a>
+          </button>
+        </div>
         </section>
+
+      <ContactForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+        isLightMode={isLightMode}
+      />
       </div>
     </>
   );

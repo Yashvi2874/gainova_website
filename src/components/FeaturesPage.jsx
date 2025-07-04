@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-
-
-// Image Imports
-import podcastImg from "../assets/gaia_podcast.png";
-import catalystImg from "../assets/gaia_catalyst.png";
-import academyImg from "../assets/gaia_academy.png";
-import eventsImg from "../assets/gaia_events.png";
-import frameworkImg from "../assets/gaia_frameworks.png";
-import mentorshipImg from "../assets/gaia_mentorship.png";
-import featuresBg from "../assets/features_bg.png"; // Your background image
-
+import podcastImg from "./../../public/images/Features/gaia_podcast.png";
+import catalystImg from "./../../public/images/Features/gaia_catalyst.png";
+import academyImg from "./../../public/images/Features/gaia_academy.png";
+import eventsImg from "./../../public/images/Features/gaia_events.png";
+import frameworkImg from "./../../public/images/Features/gaia_frameworks.png";
+import mentorshipImg from "./../../public/images/Features/gaia_mentorship.png";
+// import featuresBg from "./../../public/images/Features/features_bg.png"; // Your background image
 
 const features = [
  {
@@ -62,10 +58,8 @@ const features = [
  },
 ];
 
-
 const FeaturesPage = () => {
  const [isLightMode, setIsLightMode] = useState(false);
-
 
  useEffect(() => {
    const mq = window.matchMedia("(prefers-color-scheme: light)");
@@ -75,12 +69,10 @@ const FeaturesPage = () => {
    return () => mq.removeEventListener("change", handler);
  }, []);
 
-
  useEffect(() => {
    const stored = localStorage.getItem("gainova-lightmode");
    if (stored !== null) setIsLightMode(stored === "true");
  }, []);
-
 
  useEffect(() => {
    localStorage.setItem("gainova-lightmode", isLightMode);
@@ -88,21 +80,20 @@ const FeaturesPage = () => {
    document.body.classList.toggle("dark-mode", !isLightMode);
  }, [isLightMode]);
 
-
  return (
    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
      <section
        className="section"
        style={{
+        marginTop: "-1.8rem",
+        overflow: "hidden",
+        opacity: 1,
          minHeight: "100vh",
          width: "100vw",
          padding: "4rem 2rem",
          boxSizing: "border-box",
          position: "relative",
-         backgroundImage: `url(${featuresBg})`,
-         backgroundSize: "cover",
-         backgroundPosition: "center",
-         backgroundRepeat: "no-repeat",
+         background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)",
          display: "flex",
          flexDirection: "column",
          alignItems: "center",
@@ -116,11 +107,9 @@ const FeaturesPage = () => {
            left: 0,
            right: 0,
            bottom: 0,
-           backgroundColor: "rgba(0,0,0,0.6)",
            zIndex: 1,
          }}
        />
-
 
        <div style={{
          position: "relative",
@@ -159,24 +148,37 @@ const FeaturesPage = () => {
              <div
   key={feature.id}
   style={{
-    background: isLightMode
-      ? "rgba(255, 255, 255, 0.25)"
-      : "rgba(255, 255, 255, 0.08)",
-    backdropFilter: "blur(16px)",
-    WebkitBackdropFilter: "blur(16px)",
-    borderRadius: "16px",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    boxShadow: isLightMode
-      ? "0 8px 32px 0 rgba(31, 38, 135, 0.1)"
-      : "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
-    overflow: "hidden",
-    transition: "transform 0.3s ease",
-    maxWidth: "380px",
-    width: "100%",
-  }}
+  background: isLightMode
+    ? "rgba(255, 255, 255, 0.25)"
+    : "rgba(255, 255, 255, 0.08)",
+  backdropFilter: "blur(16px)",
+  WebkitBackdropFilter: "blur(16px)",
+  borderRadius: "16px",
+  border: "1px solid rgba(255, 255, 255, 0.2)",
+  boxShadow: isLightMode
+    ? "0 8px 32px 0 rgba(31, 38, 135, 0.1)"
+    : "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
+  overflow: "hidden",
+  transition: "transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease",
+  maxWidth: "380px",
+  width: "100%",
+  position: "relative", // needed for ::before if added
+}}
+onMouseEnter={(e) => {
+  e.currentTarget.style.transform = "translateY(-10px) scale(1.02)";
+  e.currentTarget.style.borderColor = "rgba(255, 145, 77, 0.5)";
+  e.currentTarget.style.boxShadow = "0 20px 40px rgba(255, 145, 77, 0.2)";
+}}
+onMouseLeave={(e) => {
+  e.currentTarget.style.transform = "translateY(0) scale(1)";
+  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
+  e.currentTarget.style.boxShadow = isLightMode
+    ? "0 8px 32px 0 rgba(31, 38, 135, 0.1)"
+    : "0 8px 32px 0 rgba(0, 0, 0, 0.4)";
+}}
   className="feature-card"
 >
-               <div style={{ height: "180px", overflow: "hidden" }}>
+               <div style={{ height: "180px", overflow: "hidden", padding: "2rem" }}>
                  <img
                    src={feature.image}
                    alt={feature.title}
@@ -219,46 +221,5 @@ const FeaturesPage = () => {
      </section>
    </div>
  );
-  return (
-    <div className={`homepage ${isLightMode ? "light-mode" : "dark-mode"}`}>
-      {/* <Navbar
-        sections={[]}
-        activeSection="features"
-        isLightMode={isLightMode}
-        toggleLightMode={() => setIsLightMode((v) => !v)}
-      /> */}
-
-      <section
-        id="features-hero"
-        className="section"
-        style={{
-          minHeight: "calc(100vh - 100px)", // Adjust based on navbar height
-          width: "100vw",
-          padding: "2rem",
-          boxSizing: "border-box",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <h1 className="main-heading">
-          <span className="logo-orange">Features</span>
-        </h1>
-        <ul className="home-description" style={{ marginTop: "1rem" }}>
-          <li>Smart Routing</li>
-          <li>Responsive Design</li>
-          <li>API Integration</li>
-        </ul>
-        <p className="home-description" style={{ marginTop: "2rem" }}>
-          Built with care by Eeshaja.
-        </p>
-      </section>
-    </div>
-  );
-};
-
-
+}
 export default FeaturesPage;
-
-
-

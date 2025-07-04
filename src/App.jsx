@@ -9,6 +9,7 @@ import TeamsPage from './components/TeamsPage';
 import PodcastPage from './components/PodcastPage';
 import FeaturesPage from './components/FeaturesPage';
 import Navbar from './components/Navbar/Navbar';
+import Loading from './components/loading.jsx';
 // import Contact from './components/contact/ContactUs';
 
 const App = () => {
@@ -30,6 +31,19 @@ const App = () => {
   const toggleLightMode = () => setIsLightMode((prev) => !prev);
 
   const [footerVisible, setFooterVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Adjust the delay as needed
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading onLoadingComplete={() => setLoading(false)} />;
+  }
 
   return (
     <Router>
