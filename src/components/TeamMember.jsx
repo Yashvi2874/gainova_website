@@ -16,7 +16,8 @@ const TeamMember = ({img, name, linkedin, mail, github, role}) => {
                 <FontAwesomeIcon icon={faUser} className="w-40 h-40 object-cover pt-6"/>
               )}
 
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row gap-2 items-center justify-center text-white text-lg font-bold hidden group-hover:flex rounded-full">
+              <div className='hidden md:block'>
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row gap-2 items-center justify-center text-white text-lg font-bold hidden group-hover:flex rounded-full max-md:hidden">
                     {linkedin && (
                       <a href={linkedin} target="_blank">
                         <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6 text-white"/>
@@ -35,8 +36,28 @@ const TeamMember = ({img, name, linkedin, mail, github, role}) => {
                     </a>
                     )}
               </div>
+              </div>
             </div>
             <h3 className="text-2xl font-bold pt-2">{name}</h3>
+            <div className='hidden max-md:flex flex-row gap-2 items-center justify-center text-white text-lg font-bold'>
+                {linkedin && (
+                      <a href={linkedin} target="_blank">
+                        <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6 text-white"/>
+                    </a> 
+                    )}
+                    
+                    {github && (
+                      <a href={`https://github.com/${github}`} target="_blank">
+                        <FontAwesomeIcon icon={faGithub} className="w-6 h-6 text-white"/>
+                    </a>
+                    )}
+
+                    {mail && (
+                      <a href={`https://mail.google.com/mail/?view=cm&to=${mail}`} target="_blank">
+                        <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6 text-white"/>
+                    </a>
+                    )}
+            </div>
             {/* <p className="text-muted">{role}</p> */}
           </div>
      );

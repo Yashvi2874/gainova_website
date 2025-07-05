@@ -104,7 +104,7 @@ const TeamsPage = () => {
   </div>
 </AnimatedSection>
           <div className="p-0">
-    <div className="flex flex-row justify-center items-start gap-20 max-md:flex-col pt-10 pb-10">
+    <div className="flex flex-row items-center justify-center items-start gap-20 max-md:flex-col pt-10 pb-10">
 
       {/* Mentor Section */}
       <div className="text-center">
@@ -150,7 +150,7 @@ const TeamsPage = () => {
         <AnimatedSection delay={300}>
           <div className="pt-[30px]">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4">Research Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+            <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Aaditya Khopade" img="aadityak.png" linkedin="https://www.linkedin.com/in/aaditya-khopade-402122278/" mail="aadityakhopade11@gmail.com"/>
 
               <TeamMember name="Hriday Shah" img="hriday.jpg" linkedin="https://www.linkedin.com/in/hriday-shah-09b33b288/" mail="hridayshah05@gmail.com" github="cinnamon1952"/>
@@ -169,7 +169,7 @@ const TeamsPage = () => {
         <AnimatedSection delay={400}>
           <div className="pt-[30px]">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4">Tech Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+            <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Mann Shah" img="mann.jpeg" linkedin="https://www.linkedin.com/in/mann-shah-3940a3278/" mail="shmann1306@gmail.com"/>
 
               <TeamMember name="Vinayak Pai" img="vinayak.jpeg" linkedin="https://www.linkedin.com/in/vinayak-pai-62b7a1289/" mail="vinayakpai2006@gmail.com" github="Vinayak314"/>
@@ -179,7 +179,7 @@ const TeamsPage = () => {
               <TeamMember name="Aditya Pawar" img="adityap.jpg" linkedin="https://www.linkedin.com/in/aditya-pawar-566a5b326/" mail="adityapawar2306@gmail.com" github="Bored-Pawar"/>
 
             </div>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pb-[30px]"> 
+            <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pb-[30px]"> 
               <TeamMember name="Yashasvi Gupta" img="yashvi.jpg" linkedin="https://www.linkedin.com/in/yashasvi-gupta-1230b423a/" mail="yashasvigupta28@gmail.com" github="Yashvi2874"/>
 
               <TeamMember name="Vaishnavi Singh" img="vaishnavi.jpeg" linkedin="http://www.linkedin.com/in/vaishnavi-singh-636718289" mail="singhvaishnavi252@gmail.com"/>
@@ -191,7 +191,7 @@ const TeamsPage = () => {
         <AnimatedSection delay={500}>
           <div className="pt-[30px]">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4">Marketing Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+            <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px]">
               <TeamMember name="Harjas Sigh Sethi" img="harjas.png" linkedin="https://www.linkedin.com/in/harjas-sethi-7566b9184/" mail="harjas.singh@somaiya.edu "/>
 
               <TeamMember name="Suryaansh Jain" img="suryaansh.jpg" linkedin="https://www.linkedin.com/in/suryaansh-jain-61b74b28a/" mail="suryaansh.j2006@gmail.com" github="suryaansh-jain"/>
@@ -207,7 +207,7 @@ const TeamsPage = () => {
         <AnimatedSection delay={600}>
           <div className="pt-[30px]">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4">Creative Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[90px]">
+            <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[90px]">
               <TeamMember name="Atharva Sawant" img="atharva.jpg" linkedin="http://www.linkedin.com/in/atharva-sawant10" mail="athrsawant@gmail.com" github="AtharvaSawant"/>
 
               <TeamMember name="Mrinali Sharma" img="mrinali.jpg" linkedin="https://www.linkedin.com/in/mrinali-sharma-353b92327/" mail="mrinalish@gmail.com" github="mrinalishh"/>

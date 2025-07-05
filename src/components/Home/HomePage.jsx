@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { FaPlay, FaChevronDown, FaGlobe, FaUsers, FaRocket, FaBrain, FaLightbulb, FaCode, FaGraduationCap } from "react-icons/fa";
 import ContactForm from "../../components/contact/ContactForm";
 import "./HomePage.css";
-import LogoLight from "../../../public/images/Pages/Logo_light.svg";
-import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
+import LogoLight from "/images/Pages/Logo_light.svg";
+import LogoDark from "/images/Pages/Logo_dark.svg";
 import { motion, useScroll, useTransform } from "motion/react";
 import WorldMap from "./WorldMap.jsx";
 
@@ -279,7 +279,7 @@ const Homepage = ({ isLightMode }) => {
           </div>
           <div className="hero-right">
             <img
-              src="../../../public/images/Pages/robot-website.webp"
+              src="/images/Pages/robot-website.webp"
               alt="AI Robot"
               className="hero-image"
             />

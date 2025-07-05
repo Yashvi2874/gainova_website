@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import LogoLight from "../../../public/images/Pages/Logo_light.svg";
-import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
+import LogoLight from "/images/Pages/Logo_light.svg";
+import LogoDark from "/images/Pages/Logo_dark.svg";
 import './Navbar.css';
 
 const Navbar = ({ isLightMode, toggleLightMode }) => {
