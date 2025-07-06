@@ -279,7 +279,7 @@ const Homepage = ({ isLightMode }) => {
           </div>
           <div className="hero-right">
             <img
-              src="/images/Pages/robot-website.webp"
+              src="/public/images/Pages/robot-website.webp"
               alt="AI Robot"
               className="hero-image"
             />
