@@ -83,7 +83,7 @@ const ContactUs = forwardRef((props, ref) => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-icon"
+                  className="footer-icon card"
                   aria-label={link.label}
                   style={{ '--icon-color': link.color }}
                 >
@@ -126,7 +126,7 @@ const ContactUs = forwardRef((props, ref) => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-icon"
+                  className="footer-icon card"
                   aria-label={link.label}
                   style={{ '--icon-color': link.color }}
                 >
@@ -164,7 +164,7 @@ const ContactUs = forwardRef((props, ref) => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="footer-icon"
+                className="footer-icon card"
                 aria-label={link.label}
                 style={{ '--icon-color': link.color }}
               >

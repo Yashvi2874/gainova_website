@@ -23,7 +23,7 @@ const ContactForm = ({ isOpen, onClose, isLightMode }) => {
     setIsSubmitting(true);
     
     try {
-      // Create mailto link with form data
+      // Create mailto link with form data sending to your personal email
       const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
       const body = encodeURIComponent(
         `Name: ${formData.name}\n` +
@@ -33,7 +33,8 @@ const ContactForm = ({ isOpen, onClose, isLightMode }) => {
         `Message sent from GAINOVA website contact form.`
       );
       
-      window.location.href = `mailto:info@gainova.com?subject=${subject}&body=${body}`;
+      // Send to your personal email address
+      window.location.href = `mailto:vedantshetty42@gmail.com?subject=${subject}&body=${body}`;
       
       setSubmitStatus('success');
       setTimeout(() => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "./Navbar/Navbar";
 import TeamMember from "./TeamMember";
+import Card from "./Card";
 
 const teamMembers = [
   {
@@ -137,7 +138,7 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={200}>
-          <div className="p-6 bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+          <div className="p-6 m-4">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Project Management Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Eeshaja Swami" img="eeshaja.jpg" linkedin="https://www.linkedin.com/in/eeshaja-swami-8445b2210/" mail="eeshaja.swami2005@gmail.com"/>
@@ -148,7 +149,7 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={300}>
-          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+          <div className="pt-[30px] m-4">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Research Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Aaditya Khopade" img="aadityak.png" linkedin="https://www.linkedin.com/in/aaditya-khopade-402122278/" mail="aadityakhopade11@gmail.com"/>
@@ -167,7 +168,7 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={400}>
-          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+          <div className="pt-[30px] m-4">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Tech Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Mann Shah" img="mann.jpeg" linkedin="https://www.linkedin.com/in/mann-shah-3940a3278/" mail="shmann1306@gmail.com"/>
@@ -189,7 +190,7 @@ const TeamsPage = () => {
         </AnimatedSection>
         
         <AnimatedSection delay={500}>
-          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+          <div className="pt-[30px] m-4">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Marketing Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Harjas Sigh Sethi" img="harjas.png" linkedin="https://www.linkedin.com/in/harjas-sethi-7566b9184/" mail="harjas.singh@somaiya.edu "/>
@@ -205,7 +206,7 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={600}>
-          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+          <div className="pt-[30px] m-4">
             <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Creative Team</h1>
             <div className="flex flex-row justify-center items-center gap-[70px] max-xl:flex-col items-center pt-4 pb-[90px] max-md:gap-8">
               <TeamMember name="Atharva Sawant" img="atharva.jpg" linkedin="http://www.linkedin.com/in/atharva-sawant10" mail="athrsawant@gmail.com" github="AtharvaSawant"/>

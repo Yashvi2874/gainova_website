@@ -12,12 +12,25 @@ const TeamMember = ({img, name, linkedin, mail, github, role}) => {
                 className="rounded-full w-full h-full object-cover transition-all duration-300"
                 src={img}
                 alt={name}
+                style={{
+                  border: "3px solid transparent",
+                  transition: "all 0.3s ease"
+                }}
               />
               ):(
-                <FontAwesomeIcon icon={faUser} className="w-40 h-40 object-cover pt-6 max-md:w-32 max-md:h-32 max-sm:w-24 max-sm:h-24"/>
+                <div className="rounded-full w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700"
+                  style={{
+                    border: "3px solid transparent",
+                    transition: "all 0.3s ease"
+                  }}>
+                  <FontAwesomeIcon icon={faUser} className="w-40 h-40 object-cover pt-6 max-md:w-32 max-md:h-32 max-sm:w-24 max-sm:h-24"/>
+                </div>
               )}
 
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row gap-2 items-center justify-center text-white text-lg font-bold hidden group-hover:flex rounded-full transition-all duration-300">
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-row gap-2 items-center justify-center text-white text-lg font-bold hidden group-hover:flex rounded-full transition-all duration-300"
+                style={{
+                  borderRadius: "50%"
+                }}>
                     {linkedin && (
                       <a href={linkedin} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-200">
                         <FontAwesomeIcon icon={faLinkedin} className="w-6 h-6 text-white max-md:w-5 max-md:h-5"/>

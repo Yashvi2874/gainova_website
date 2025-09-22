@@ -240,6 +240,16 @@ const Homepage = ({ isLightMode }) => {
     setIsContactFormOpen(true);
   };
 
+  // Function to handle navigation to About page
+  const handleLearnMoreClick = () => {
+    window.location.href = "/about";
+  };
+
+  // Function to handle navigation to Features page
+  const handleExploreFeaturesClick = () => {
+    window.location.href = "/features";
+  };
+
   const getPathLength = (startOffset, endOffset) => {
     if (!goalSectionRef.current) return 0;
     
@@ -271,7 +281,7 @@ const Homepage = ({ isLightMode }) => {
             </p>
             <button
               className="hero-learn-btn"
-              onClick={() => window.location.href = "/about"}
+              onClick={handleLearnMoreClick}
             >
               Learn More
               <span className="arrow-icon">→</span>
@@ -279,7 +289,7 @@ const Homepage = ({ isLightMode }) => {
           </div>
           <div className="hero-right">
             <img
-              src="/images/Pages/robot-website.webp"
+              src="../../../public/images/Pages/robot-website.webp"
               alt="AI Robot"
               className="hero-image"
             />
@@ -506,7 +516,7 @@ const Homepage = ({ isLightMode }) => {
         </div>
 
         <div className="section-cta">
-          <button className="cta-button" onClick={() => window.location.href = "/features"}>
+          <button className="cta-button" onClick={handleExploreFeaturesClick}>
             Explore All Features
             <span className="arrow-icon">→</span>
           </button>

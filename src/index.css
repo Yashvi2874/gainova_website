@@ -172,6 +172,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .feature-card:hover {
@@ -208,6 +209,8 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: scale(1); 
+  border: 1px solid rgba(255, 145, 77, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .feature-card:hover {
@@ -381,6 +384,7 @@ html, body {
   padding: 2.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .featured-episode .podcast-card {

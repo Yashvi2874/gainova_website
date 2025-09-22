@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar/Navbar"; // ✅ Make sure Navbar is used
 import evolutionGif from "../../public/images/Pages/Evolution.gif";
 import ContactForm from "../components/contact/ContactForm";
+import Card from "./Card";
 
 const AboutPage = () => {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -30,7 +31,13 @@ const AboutPage = () => {
   }, [isLightMode]);
 
   const handleContactUsClick = () => {
-    setIsContactFormOpen(true);
+    // Scroll to contact section or open contact form
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      setIsContactFormOpen(true);
+    }
   };
 
   const themeColors = {
@@ -142,24 +149,18 @@ const AboutPage = () => {
             marginTop: '2rem'
           }}>
             {whyJoin.map((item, index) => (
-              <div
+              <Card 
                 key={index}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                className="why-join-card"
                 style={{
-                  backgroundColor: themeColors.card,
-                  borderRadius: '16px',
                   padding: '2rem 1.5rem',
                   textAlign: 'center',
                   borderLeft: `4px solid ${themeColors.highlight}`,
-                  transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                   cursor: 'pointer',
-                  transform: hoveredIndex === index ? 'translateY(-10px) scale(1.02)' : 'translateY(0) scale(1)',
-                  boxShadow: hoveredIndex === index ? `0 20px 40px ${isLightMode ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.15)'}` : '0 10px 20px rgba(0,0,0,0.1)',
                   color: themeColors.text,
-                  border: `1px solid ${isLightMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)'}`,
-                  backdropFilter: 'blur(10px)'
                 }}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div style={{ 
                   fontSize: '2.5rem', 
@@ -178,7 +179,7 @@ const AboutPage = () => {
                   fontSize: '0.95rem',
                   lineHeight: '1.6'
                 }}>{item.description}</p>
-              </div>
+              </Card>
             ))}
           </div>
         </section>
@@ -231,25 +232,17 @@ const AboutPage = () => {
                 e.currentTarget.style.boxShadow = '0 10px 25px rgba(255, 145, 77, 0.4)';
               }}
             >
-              <a href="mailto:info@gainova.org" style={{
-                color: '#fff',
-                borderRadius: '30px',
-                display: 'inline-block',
-                textDecoration: 'none',
-                fontWeight: 'bold'
-              }}>
-                Get started today!
-                <span className="arrow-icon" style={{ marginLeft: '0.5rem' }}>→</span>
-              </a>
+              <span>Get started today!</span>
+              <span className="arrow-icon">→</span>
             </button>
           </div>
         </section>
 
-      <ContactForm 
-        isOpen={isContactFormOpen} 
-        onClose={() => setIsContactFormOpen(false)} 
-        isLightMode={isLightMode}
-      />
+        <ContactForm 
+          isOpen={isContactFormOpen} 
+          onClose={() => setIsContactFormOpen(false)} 
+          isLightMode={isLightMode}
+        />
       </div>
     </>
   );

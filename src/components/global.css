@@ -70,11 +70,41 @@ a:hover {
   border-radius: 16px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.card:hover {
+.card-glass {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .card-glass {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(255, 145, 77, 0.2);
+  border-color: rgba(255, 145, 77, 0.5);
+}
+
+body.light-mode .card-hover:hover {
+  box-shadow: 0 8px 24px rgba(255, 145, 77, 0.3);
+  border-color: rgba(255, 145, 77, 0.5);
 }
 
 /* Consistent section padding */
@@ -214,6 +244,10 @@ a:hover {
   h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
   h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); }
   h3 { font-size: clamp(1.2rem, 3vw, 1.8rem); }
+  
+  .card {
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -224,4 +258,9 @@ a:hover {
   h1 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
   h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
   h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+  
+  .card {
+    border-radius: 10px;
+    padding: 1rem;
+  }
 }

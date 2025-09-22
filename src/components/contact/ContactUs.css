@@ -76,6 +76,8 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .footer-icon::before {
@@ -259,6 +261,7 @@ body.light-mode .footer-icon {
   background: rgba(0, 0, 0, 0.05);
   border-color: rgba(237, 107, 77, 0.2);
   color: #ed6b4d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .footer-icon:hover {
