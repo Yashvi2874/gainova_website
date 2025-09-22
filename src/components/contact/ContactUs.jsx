@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { FaInstagram, FaYoutube, FaEnvelope, FaPhone, FaLinkedin, FaTwitter } from "react-icons/fa";
-import LogoLight from "../../../public/images/Pages/Logo_light.svg";
-import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
+import LogoLight from "/images/Pages/Logo_light.svg";
+import LogoDark from "/images/Pages/Logo_dark.svg";
 import "./ContactUs.css";
 
 const email = "vedantshetty42@gmail.com";

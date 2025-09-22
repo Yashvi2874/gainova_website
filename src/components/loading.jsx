@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import icon from './../../public/images/Pages/Icon_nobg.svg'; // Adjust the path as necessary
+import icon from '/images/Pages/Icon_nobg.svg'; // Adjust the path as necessary
 
 const Loading = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
