@@ -1,16 +1,19 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { FaPlay, FaChevronDown, FaGlobe, FaUsers, FaRocket, FaBrain, FaLightbulb, FaCode, FaGraduationCap } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import ContactForm from "../../components/contact/ContactForm";
 import "./HomePage.css";
 import LogoLight from "/images/Pages/Logo_light.svg";
 import LogoDark from "/images/Pages/Logo_dark.svg";
+import RobotImage from "/images/Pages/robot-website.webp";
 import { motion, useScroll, useTransform } from "motion/react";
 import WorldMap from "./WorldMap.jsx";
 
 const sections = ["home", "goal", "collaborate", "features", "faqs"];
 
 const Homepage = ({ isLightMode }) => {
+  const navigate = useNavigate(); // Add this line to properly initialize navigate
   const [activeSection, setActiveSection] = useState("home");
   const [openFAQ, setOpenFAQ] = useState(null);
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -242,12 +245,12 @@ const Homepage = ({ isLightMode }) => {
 
   // Function to handle navigation to About page
   const handleLearnMoreClick = () => {
-    window.location.href = "/about";
+    navigate("/about"); // Use navigate instead of window.location.href
   };
 
   // Function to handle navigation to Features page
   const handleExploreFeaturesClick = () => {
-    window.location.href = "/features";
+    navigate("/features"); // Use navigate instead of window.location.href
   };
 
   const getPathLength = (startOffset, endOffset) => {
@@ -289,7 +292,7 @@ const Homepage = ({ isLightMode }) => {
           </div>
           <div className="hero-right">
             <img
-              src="../../../public/images/Pages/robot-website.webp"
+              src={RobotImage} // Use the imported image instead of relative path
               alt="AI Robot"
               className="hero-image"
             />
@@ -342,7 +345,7 @@ const Homepage = ({ isLightMode }) => {
           </div>
         </div>
       </section> */}
-      <section id="goal" className="section goals-enhanced" ref={goalSectionRef}>
+      <section id="goal" className="section goals-enhanced" ref={goalSectionRef} style={{ position: 'relative' }}>
         <div className="goals-content-enhanced">
           <div className="goals-header">
             <h2 className="goals-title-enhanced">Our Vision</h2>
