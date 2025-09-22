@@ -68,7 +68,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
         { path: "/#goal", label: "Our Goal" },
         { path: "/#features", label: "Our Features" },
         { path: "/#collaborate", label: "Collaborate" },
-        { path: "/#podcast", label: "Our Podcasts" },
+        // { path: "/#podcast", label: "Our Podcasts" },
         { path: "/#faqs", label: "FAQs" }
     ]},
     { path: "/about", label: "About", subsections: [
@@ -85,10 +85,10 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
         { path: "/teams#creative", label: "Creative Team" }
       ]
     },
-    { path: "/podcast", label: "Podcast", subsections: [
-        { path: "/podcast#purpose", label: "Purpose" },
-        { path: "/podcast#episodes", label: "Episode:1 Mr. Speaker coming soon" }
-    ]},
+    // { path: "/podcast", label: "Podcast", subsections: [
+    //     { path: "/podcast#purpose", label: "Purpose" },
+    //     { path: "/podcast#episodes", label: "Episode:1 Mr. Speaker coming soon" }
+    // ]},
     { path: "/features", label: "Features" },
     { label: "Contact Us" },
   ];
@@ -129,7 +129,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
       </div>
       <ul className="nav-links desktop-nav">
         {links.map(({ path, label, subsections }) => (
-          <li key={label} className={subsections ? "has-dropdown" : ""}>
+          <li key={label} className={`nav-item ${subsections ? "has-dropdown" : ""}`}>
             {label === "Contact Us" ? (
               <button
                 className="nav-contact-btn"
@@ -142,7 +142,8 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   }, 100);
-}}>
+}}
+                >
                 {label}
               </button>
             ) : (
@@ -157,7 +158,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                         "/": "home",
                         "/about": "about-hero",
                         "/teams": "teams-hero",
-                        "/podcast": "podcast-hero",
+                        // "/podcast": "podcast-hero",
                         "/features": "features-hero",
                       };
                       const sectionId = sectionMap[path];
@@ -226,7 +227,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
     </button>
       <ul className={`mobile-dropdown${isMobileMenuOpen ? " open" : ""}${isClosing ? " closing" : ""}`}>
   {links.map(({ path, label, subsections }) => (
-    <li key={label}>
+    <li key={label} className="mobile-nav-item">
       {label === "Contact Us" ? (
         <button
           className="nav-contact-btn"
@@ -255,7 +256,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
                 "/about": "about-hero",
                 "/features": "features-hero", 
                 "/teams": "teams-hero",
-                "/podcast": "podcast-hero",
+                // "/podcast": "podcast-hero",
               };
               const hero = sectionMap[path] && document.getElementById(sectionMap[path]);
               if (hero) {

@@ -97,18 +97,18 @@ const TeamsPage = () => {
         <AnimatedSection delay={0}>
           <AnimatedSection delay={0}>
   <div className="text-center mt-10 mb-0 relative inline-block w-full">
-    <h1 className="text-6xl font-extrabold text-[#ff914d] inline-block relative pb-4">
+    <h1 className="text-6xl font-extrabold text-[#ff914d] inline-block relative pb-4 max-md:text-4xl animate-pulse">
       Meet Our Team
-      <span className="block h-[5px] w-[60%] mt-2 mx-auto bg-gradient-to-r from-transparent via-[#ff914d] to-transparent"></span>
+      <span className="block h-[5px] w-[60%] mt-2 mx-auto bg-gradient-to-r from-transparent via-[#ff914d] to-transparent max-md:h-[3px]"></span>
     </h1>
   </div>
 </AnimatedSection>
           <div className="p-0">
-    <div className="flex flex-row justify-center items-start gap-20 max-md:flex-col pt-10 pb-10">
+    <div className="flex flex-row justify-center items-start gap-20 max-md:flex-col pt-10 pb-10 max-md:gap-10 max-sm:gap-6">
 
       {/* Mentor Section */}
-      <div className="text-center">
-        <h1 className="text-[#d4be69] m-4 font-semibold">Mentor</h1>
+      <div className="text-center flex-1 max-md:w-full transform transition duration-500 hover:scale-105">
+        <h1 className="text-[#d4be69] m-4 font-semibold text-xl">Mentor</h1>
         <div className="flex justify-center">
           <TeamMember 
             img="aniket.jpeg"
@@ -119,8 +119,8 @@ const TeamsPage = () => {
       </div>
 
       {/* Student Lead Section */}
-      <div className="text-center">
-        <h1 className="text-[#d4be69] m-4 font-semibold">Student Lead</h1>
+      <div className="text-center flex-1 max-md:w-full transform transition duration-500 hover:scale-105">
+        <h1 className="text-[#d4be69] m-4 font-semibold text-xl">Student Lead</h1>
         <div className="flex justify-center">
           <TeamMember 
             img="vedant.png"
@@ -137,9 +137,9 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={200}>
-          <div className="p-6">
-            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Project Management Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+          <div className="p-6 bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Project Management Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Eeshaja Swami" img="eeshaja.jpg" linkedin="https://www.linkedin.com/in/eeshaja-swami-8445b2210/" mail="eeshaja.swami2005@gmail.com"/>
 
               <TeamMember name="Somin" img="somin.jpg" linkedin="https://www.linkedin.com/in/somin-shah-93039a286/" mail="sominshah.ks@gmail.com" github="SSHAH1518" />
@@ -148,9 +148,9 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={300}>
-          <div className="pt-[30px]">
-            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Research Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Research Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Aaditya Khopade" img="aadityak.png" linkedin="https://www.linkedin.com/in/aaditya-khopade-402122278/" mail="aadityakhopade11@gmail.com"/>
 
               <TeamMember name="Hriday Shah" img="hriday.jpg" linkedin="https://www.linkedin.com/in/hriday-shah-09b33b288/" mail="hridayshah05@gmail.com" github="cinnamon1952"/>
@@ -160,16 +160,16 @@ const TeamsPage = () => {
               <TeamMember name="Vivek Lakhsman" img="vivek.jpg" linkedin="https://www.linkedin.com/in/vivek-lakshman/" mail="vivekl2005@gmail.com"/>
               
             </div>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pb-[30px]"> 
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pb-[30px] max-md:gap-8"> 
               <TeamMember name="Yashh Gokullgandhi" img="yashh.jpeg" linkedin="https://www.linkedin.com/in/yashh-gokullgandhi-615766283/"/>
             </div>
           </div>
         </AnimatedSection>
 
         <AnimatedSection delay={400}>
-          <div className="pt-[30px]">
-            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Tech Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Tech Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Mann Shah" img="mann.jpeg" linkedin="https://www.linkedin.com/in/mann-shah-3940a3278/" mail="shmann1306@gmail.com"/>
 
               <TeamMember name="Vinayak Pai" img="vinayak.jpeg" linkedin="https://www.linkedin.com/in/vinayak-pai-62b7a1289/" mail="vinayakpai2006@gmail.com" github="Vinayak314"/>
@@ -179,7 +179,7 @@ const TeamsPage = () => {
               <TeamMember name="Aditya Pawar" img="adityap.jpg" linkedin="https://www.linkedin.com/in/aditya-pawar-566a5b326/" mail="adityapawar2306@gmail.com" github="Bored-Pawar"/>
 
             </div>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pb-[30px]"> 
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pb-[30px] max-md:gap-8"> 
               <TeamMember name="Yashasvi Gupta" img="yashvi.jpg" linkedin="https://www.linkedin.com/in/yashasvi-gupta-1230b423a/" mail="yashasvigupta28@gmail.com" github="Yashvi2874"/>
 
               <TeamMember name="Vaishnavi Singh" img="vaishnavi.jpeg" linkedin="http://www.linkedin.com/in/vaishnavi-singh-636718289" mail="singhvaishnavi252@gmail.com"/>
@@ -189,9 +189,9 @@ const TeamsPage = () => {
         </AnimatedSection>
         
         <AnimatedSection delay={500}>
-          <div className="pt-[30px]">
-            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Marketing Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px]">
+          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Marketing Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[30px] max-md:gap-8 max-sm:gap-6">
               <TeamMember name="Harjas Sigh Sethi" img="harjas.png" linkedin="https://www.linkedin.com/in/harjas-sethi-7566b9184/" mail="harjas.singh@somaiya.edu "/>
 
               <TeamMember name="Suryaansh Jain" img="suryaansh.jpg" linkedin="https://www.linkedin.com/in/suryaansh-jain-61b74b28a/" mail="suryaansh.j2006@gmail.com" github="suryaansh-jain"/>
@@ -205,9 +205,9 @@ const TeamsPage = () => {
         </AnimatedSection>
 
         <AnimatedSection delay={600}>
-          <div className="pt-[30px]">
-            <h1 align="center" className="text-[#d4be69] mb-10 m-4">Creative Team</h1>
-            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[90px]">
+          <div className="pt-[30px] bg-gradient-to-r from-transparent via-[#1a1a1a] to-transparent rounded-2xl m-4 transform transition duration-500 hover:shadow-2xl">
+            <h1 align="center" className="text-[#d4be69] mb-10 m-4 text-2xl">Creative Team</h1>
+            <div className="flex flex-row justify-center items-center gap-[70px] max-md:flex-col items-center pt-4 pb-[90px] max-md:gap-8">
               <TeamMember name="Atharva Sawant" img="atharva.jpg" linkedin="http://www.linkedin.com/in/atharva-sawant10" mail="athrsawant@gmail.com" github="AtharvaSawant"/>
 
               <TeamMember name="Mrinali Sharma" img="mrinali.jpg" linkedin="https://www.linkedin.com/in/mrinali-sharma-353b92327/" mail="mrinalish@gmail.com" github="mrinalishh"/>

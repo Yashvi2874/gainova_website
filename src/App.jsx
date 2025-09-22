@@ -6,7 +6,7 @@ import Layout from './components/Layout';
 import HomePage from './components/Home/HomePage';
 import AboutPage from './components/AboutPage';
 import TeamsPage from './components/TeamsPage';
-import PodcastPage from './components/PodcastPage';
+// import PodcastPage from './components/PodcastPage';
 import FeaturesPage from './components/FeaturesPage';
 import Navbar from './components/Navbar/Navbar';
 import Loading from './components/loading.jsx';
@@ -53,10 +53,10 @@ const App = () => {
       <ScrollToHeroSection />
       <Routes>
         <Route element={<Layout setFooterVisible={setFooterVisible} />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage isLightMode={isLightMode} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/teams" element={<TeamsPage />} />
-          <Route path="/podcast" element={<PodcastPage />} />
+          {/* <Route path="/podcast" element={<PodcastPage />} /> */}
           <Route path="/features" element={<FeaturesPage />} />
           {/* <Route path="/contact_us" element={<Contact />} /> */}
         </Route>
@@ -81,7 +81,7 @@ function ScrollToHeroSection() {
       "/": "home",
       "/about": "about-hero",
       "/teams": "teams-hero",
-      "/podcast": "podcast-hero",
+      // "/podcast": "podcast-hero",
       "/features": "features-hero",
     };
     const sectionId = sectionMap[pathname];

@@ -1,0 +1,53 @@
+.team-member {
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 145, 77, 0.2);
+}
+
+.team-member-image {
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.team-member:hover .team-member-image {
+  border-color: #ff914d;
+  box-shadow: 0 0 20px rgba(255, 145, 77, 0.3);
+}
+
+.team-member-name {
+  color: #ff914d;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.team-member:hover .team-member-name {
+  color: #d4be69;
+  text-shadow: 0 0 10px rgba(212, 190, 105, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .team-member {
+    padding: 0.5rem;
+  }
+  
+  .team-member-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-member {
+    padding: 0.25rem;
+  }
+  
+  .team-member-name {
+    font-size: 1rem;
+  }
+}

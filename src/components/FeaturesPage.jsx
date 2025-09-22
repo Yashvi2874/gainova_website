@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import podcastImg from "./../../public/images/Features/gaia_podcast.png";
+// import podcastImg from "./../../public/images/Features/gaia_podcast.png";
 import catalystImg from "./../../public/images/Features/gaia_catalyst.png";
 import academyImg from "./../../public/images/Features/gaia_academy.png";
 import eventsImg from "./../../public/images/Features/gaia_events.png";
@@ -8,14 +8,14 @@ import mentorshipImg from "./../../public/images/Features/gaia_mentorship.png";
 // import featuresBg from "./../../public/images/Features/features_bg.png"; // Your background image
 
 const features = [
- {
-   id: 1,
-   title: "GAIA Podcasts",
-   description:
-     "Conversations that drive the future of AI. Tune into exclusive interviews with CEOs, founders, and AI experts on innovation, ethics, and impact.",
-   image: podcastImg,
-   tags: [],
- },
+ // {
+ //   id: 1,
+ //   title: "GAIA Podcasts",
+ //   description:
+ //     "Conversations that drive the future of AI. Tune into exclusive interviews with CEOs, founders, and AI experts on innovation, ethics, and impact.",
+ //   image: podcastImg,
+ //   tags: [],
+ // },
  {
    id: 2,
    title: "Catalyst Projects",
@@ -119,7 +119,7 @@ const FeaturesPage = () => {
          display: "flex",
          flexDirection: "column",
          alignItems: "center",
-         textAlign: "center", // Center text alignment
+         textAlign: "center",
        }}>
          <h1
            className="main-heading"
@@ -127,21 +127,24 @@ const FeaturesPage = () => {
              color: "#FF914D",
              fontSize: "4rem",
              marginBottom: "2rem",
-             width: "100%"
+             width: "100%",
+             fontFamily: "'Garet', sans-serif",
+             fontWeight: "700",
+             textShadow: "0 0 20px rgba(255, 145, 77, 0.5)",
            }}
          >
            Features
          </h1>
 
-
          <div
            className="grid"
            style={{
              display: "grid",
-             gridTemplateColumns: "repeat(3, 1fr)",
+             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
              gap: "2rem",
              width: "100%",
              justifyContent: "center",
+             marginTop: "2rem",
            }}
          >
            {features.map((feature) => (
@@ -159,15 +162,17 @@ const FeaturesPage = () => {
     ? "0 8px 32px 0 rgba(31, 38, 135, 0.1)"
     : "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
   overflow: "hidden",
-  transition: "transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease",
+  transition: "all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
   maxWidth: "380px",
   width: "100%",
-  position: "relative", // needed for ::before if added
+  position: "relative",
+  transform: "translateY(0)",
+  cursor: "pointer",
 }}
 onMouseEnter={(e) => {
   e.currentTarget.style.transform = "translateY(-10px) scale(1.02)";
   e.currentTarget.style.borderColor = "rgba(255, 145, 77, 0.5)";
-  e.currentTarget.style.boxShadow = "0 20px 40px rgba(255, 145, 77, 0.2)";
+  e.currentTarget.style.boxShadow = "0 20px 40px rgba(255, 145, 77, 0.3)";
 }}
 onMouseLeave={(e) => {
   e.currentTarget.style.transform = "translateY(0) scale(1)";
@@ -186,6 +191,7 @@ onMouseLeave={(e) => {
                      width: "100%",
                      height: "100%",
                      objectFit: "cover",
+                     borderRadius: "8px",
                    }}
                  />
                </div>
@@ -197,11 +203,13 @@ onMouseLeave={(e) => {
                          key={i}
                          style={{
                            padding: "0.25rem 0.75rem",
-                           backgroundColor: "#242423",
+                           background: "linear-gradient(45deg, #ff914d, #d4be69)",
                            borderRadius: "999px",
                            fontSize: "0.75rem",
                            color: "#fff",
                            marginRight: "0.5rem",
+                           fontWeight: "600",
+                           boxShadow: "0 4px 12px rgba(255, 145, 77, 0.3)",
                          }}
                        >
                          {tag}
@@ -209,8 +217,17 @@ onMouseLeave={(e) => {
                      ))}
                    </div>
                  )}
-                 <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>{feature.title}</h3>
-                 <p style={{ fontSize: "0.95rem", color: isLightMode ? "#333" : "#ccc" }}>
+                 <h3 style={{ 
+                   fontSize: "1.25rem", 
+                   marginBottom: "0.5rem",
+                   fontWeight: "700",
+                   color: "#ff914d"
+                 }}>{feature.title}</h3>
+                 <p style={{ 
+                   fontSize: "0.95rem", 
+                   color: isLightMode ? "#333" : "#ccc",
+                   lineHeight: "1.6"
+                 }}>
                    {feature.description}
                  </p>
                </div>

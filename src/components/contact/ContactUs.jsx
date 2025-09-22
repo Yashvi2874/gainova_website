@@ -4,9 +4,9 @@ import LogoLight from "../../../public/images/Pages/Logo_light.svg";
 import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
 import "./ContactUs.css";
 
-const email = "info@gainova.com";
-const phone = "+91 93164 11714";
-const linkedin = "https://linkedin.com/company/gainova";
+const email = "vedantshetty42@gmail.com";
+const phone = "+91 9284775215";
+const linkedin = "https://www.linkedin.com/company/gainova";
 const instagram = "https://instagram.com/gainova";
 const youtube = "https://youtube.com/@gainova";
 const twitter = "https://twitter.com/gainova";

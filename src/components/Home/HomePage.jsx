@@ -8,7 +8,7 @@ import LogoDark from "../../../public/images/Pages/Logo_dark.svg";
 import { motion, useScroll, useTransform } from "motion/react";
 import WorldMap from "./WorldMap.jsx";
 
-const sections = ["home", "goal", "collaborate", "features", "podcast", "faqs"];
+const sections = ["home", "goal", "collaborate", "features", "faqs"];
 
 const Homepage = ({ isLightMode }) => {
   const [activeSection, setActiveSection] = useState("home");
@@ -571,7 +571,7 @@ const Homepage = ({ isLightMode }) => {
       </section>
 
       {/* Podcast Section */}
-      <section id="podcast" className="section podcast">
+      {/* <section id="podcast" className="section podcast">
         <div className="section-header">
           <div className="podcast-icon">🎙️</div>
           <h2>GAIA Podcasts</h2>
@@ -610,7 +610,7 @@ const Homepage = ({ isLightMode }) => {
             <span className="arrow-icon">→</span>
           </button>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section id="faqs" className="section faqs">
